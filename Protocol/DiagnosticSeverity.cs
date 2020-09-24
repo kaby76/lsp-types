@@ -1,25 +1,25 @@
 ﻿namespace LspTypes
 {
-    //
-    // Summary:
-    //     Diagnostic severity enum.
     public enum DiagnosticSeverity
     {
-        //
-        // Summary:
-        //     Error
+        /**
+         * Reports an error.
+         */
         Error = 1,
-        //
-        // Summary:
-        //     Warning
+            
+        /**
+         * Reports a warning.
+         */
         Warning = 2,
-        //
-        // Summary:
-        //     Information
+
+        /**
+         * Reports an information.
+         */
         Information = 3,
-        //
-        // Summary:
-        //     Hint
-        Hint = 4
+
+        /**
+         * Reports a hint.
+         */
+        Hint = 4,
     }
 }
