@@ -1,4 +1,5 @@
-﻿using System.Runtime.Serialization;
+﻿using Newtonsoft.Json;
+using System.Runtime.Serialization;
 
 namespace LspTypes
 {
@@ -13,4 +14,10 @@ namespace LspTypes
         [DataMember(Name = "resolveProvider")]
         public bool ResolveProvider { get; set; }
     }
+
+    public interface ICodeLensOptions : IWorkDoneProgressOptions
+    {
+        bool ResolveProvider { get; set; }
+    }
+
 }

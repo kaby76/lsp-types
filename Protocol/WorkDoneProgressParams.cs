@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace LspTypes
 {
     [DataContract]
-    public class WorkDoneProgressParams
+    public class WorkDoneProgressParams : IWorkDoneProgressParams
     {
         public WorkDoneProgressParams() { }
 
@@ -15,4 +15,10 @@ namespace LspTypes
         [JsonProperty(Required = Required.Default)]
         public SumType<string, int> WorkDoneToken { get; set; }
     }
+
+    public interface IWorkDoneProgressParams
+    {
+        SumType<string, int> WorkDoneToken { get; set; }
+    }
+
 }

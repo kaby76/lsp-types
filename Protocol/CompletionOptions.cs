@@ -7,7 +7,7 @@ namespace LspTypes
      * Completion options.
      */
     [DataContract]
-    public class CompletionOptions : WorkDoneProgressOptions
+    public class CompletionOptions : WorkDoneProgressOptions, ICompletionOptions
     {
         public CompletionOptions() { }
 
@@ -45,4 +45,12 @@ namespace LspTypes
         [DataMember(Name = "resolveProvider")]
         public bool ResolveProvider { get; set; }
     }
+
+    public interface ICompletionOptions : IWorkDoneProgressOptions
+    {
+        string[] TriggerCharacters { get; set; }
+        string[] AllCommitCharacters { get; set; }
+        bool ResolveProvider { get; set; }
+    }
+
 }

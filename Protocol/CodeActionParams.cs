@@ -1,4 +1,5 @@
-﻿using System.Runtime.Serialization;
+﻿using Newtonsoft.Json;
+using System.Runtime.Serialization;
 
 namespace LspTypes
 {
@@ -6,7 +7,7 @@ namespace LspTypes
      * Params for the CodeActionRequest
      */
     [DataContract]
-    public class CodeActionParams : WorkDoneProgressParams, PartialResultParams
+    public class CodeActionParams : WorkDoneProgressParams, IPartialResultParams
     {
         public CodeActionParams() { }
 
@@ -27,5 +28,13 @@ namespace LspTypes
          */
         [DataMember(Name = "range")]
         public Range Range { get; set; }
+
+        /**
+         * An optional token that a server can use to report partial results (e.g. streaming) to
+         * the client.
+         */
+        [DataMember(Name = "partialResultToken")]
+        [JsonProperty(Required = Required.Default)]
+        public SumType<int, string> PartialResultToken { get; set; }
     }
 }

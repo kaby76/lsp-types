@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace LspTypes
 {
     [DataContract]
-    public class CompletionParams : TextDocumentPositionParams, WorkDoneProgressParams, PartialResultParams
+    public class CompletionParams : TextDocumentPositionParams, IWorkDoneProgressParams, IPartialResultParams
     {
         public CompletionParams() { }
 
@@ -17,7 +17,19 @@ namespace LspTypes
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public CompletionContext Context { get; set; }
 
-        [DataMember(Name = "partialResultToken", IsRequired = false)]
-        public IProgress<SumType<CompletionItem[], CompletionList>?> PartialResultToken { get; set; }
+        /**
+         * An optional token that a server can use to report work done progress.
+         */
+        [DataMember(Name = "workDoneToken")]
+        [JsonProperty(Required = Required.Default)]
+        public SumType<string, int> WorkDoneToken { get; set; }
+        
+        /**
+         * An optional token that a server can use to report partial results (e.g. streaming) to
+         * the client.
+         */
+        [DataMember(Name = "partialResultToken")]
+        [JsonProperty(Required = Required.Default)]
+        public SumType<int, string> PartialResultToken { get; set; }
     }
 }
