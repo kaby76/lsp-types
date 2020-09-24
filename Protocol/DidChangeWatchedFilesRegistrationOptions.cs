@@ -2,19 +2,19 @@
 
 namespace LspTypes
 {
-    //
-    // Summary:
-    //     Class representing the options for registering workspace/didChangeWatchedFiles
-    //     support.
+    /**
+     * Describe options to be used when registering for file system change events.
+     */
     [DataContract]
     public class DidChangeWatchedFilesRegistrationOptions
     {
         public DidChangeWatchedFilesRegistrationOptions() { }
 
-        //
-        // Summary:
-        //     Gets or sets the watchers that should be registered.
+        /**
+         * The watchers to register.
+         */
         [DataMember(Name = "watchers")]
+        [JsonProperty(Required = Required.Always)]
         public FileSystemWatcher[] Watchers { get; set; }
     }
 }

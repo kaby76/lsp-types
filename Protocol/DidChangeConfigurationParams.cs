@@ -3,10 +3,6 @@ using System.Runtime.Serialization;
 
 namespace LspTypes
 {
-    //
-    // Summary:
-    //     Class which represents the parameter sent with workspace/didChangeConfiguration
-    //     requests.
     [DataContract]
     public class DidChangeConfigurationParams
     {

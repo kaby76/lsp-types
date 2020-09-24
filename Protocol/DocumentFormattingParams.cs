@@ -2,24 +2,23 @@
 
 namespace LspTypes
 {
-    //
-    // Summary:
-    //     Class which represents the parameter that is sent with textDocument/formatting
-    //     message.
     [DataContract]
-    public class DocumentFormattingParams
+    public class DocumentFormattingParams : WorkDoneProgressParams 
     {
         public DocumentFormattingParams() { }
 
-        //
-        // Summary:
-        //     Gets or sets the identifier for the text document to be formatted.
+        /**
+         * The document to format.
+         */
         [DataMember(Name = "textDocument")]
+        [JsonProperty(Required = Required.Always)]
         public TextDocumentIdentifier TextDocument { get; set; }
-        //
-        // Summary:
-        //     Gets or sets the formatting options.
+
+        /**
+         * The format options.
+         */
         [DataMember(Name = "options")]
+        [JsonProperty(Required = Required.Always)]
         public FormattingOptions Options { get; set; }
     }
 }

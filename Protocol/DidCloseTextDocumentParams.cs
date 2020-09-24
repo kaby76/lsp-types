@@ -2,19 +2,16 @@
 
 namespace LspTypes
 {
-    //
-    // Summary:
-    //     Class which represents the parameter that is sent with textDocument/didClose
-    //     message.
     [DataContract]
     public class DidCloseTextDocumentParams
     {
         public DidCloseTextDocumentParams() { }
 
-        //
-        // Summary:
-        //     Gets or sets the text document identifier.
+        /**
+         * The document that was closed.
+         */
         [DataMember(Name = "textDocument")]
+        [JsonProperty(Required = Required.Always)]
         public TextDocumentIdentifier TextDocument { get; set; }
     }
 }

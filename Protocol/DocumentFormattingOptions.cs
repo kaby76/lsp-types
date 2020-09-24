@@ -2,11 +2,8 @@
 
 namespace LspTypes
 {
-    //
-    // Summary:
-    //     TODO: Add documentation
     [DataContract]
-    public class DocumentFormattingOptions
+    public class DocumentFormattingOptions : WorkDoneProgressOptions 
     {
         public DocumentFormattingOptions() { }
     }

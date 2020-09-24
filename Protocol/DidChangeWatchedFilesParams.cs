@@ -2,19 +2,16 @@
 
 namespace LspTypes
 {
-    //
-    // Summary:
-    //     Class which represents the parameter that is sent with workspace/didChangeWatchedFiles
-    //     message.
     [DataContract]
     public class DidChangeWatchedFilesParams
     {
         public DidChangeWatchedFilesParams() { }
 
-        //
-        // Summary:
-        //     Gets or sets of the collection of file change events.
+        /**
+         * The actual file events.
+         */
         [DataMember(Name = "changes")]
+        [JsonProperty(Required = Required.Always)]
         public FileEvent[] Changes { get; set; }
     }
 }

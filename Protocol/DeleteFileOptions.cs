@@ -18,7 +18,9 @@ namespace LspTypes
         [JsonProperty(Required = Required.Default)]
         public bool Recursive { get; set; }
 
-        // Ignore the operation if the file doesn't exist.
+        /**
+         * Ignore the operation if the file doesn't exist.
+         */
         [DataMember(Name = "ignoreIfNotExists")]
         [JsonProperty(Required = Required.Default)]
         public bool IgnoreIfNotExists { get; set; }

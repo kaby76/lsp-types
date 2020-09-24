@@ -2,23 +2,29 @@
 
 namespace LspTypes
 {
-    //
-    // Summary:
-    //     Class representing the response from a textDocument/documentHighlight request.
+    /**
+     * A document highlight is a range inside a text document which deserves
+     * special attention. Usually a document highlight is visualized by changing
+     * the background color of its range.
+     *
+     */
     [DataContract]
     public class DocumentHighlight
     {
         public DocumentHighlight() { }
 
-        //
-        // Summary:
-        //     Gets or sets the range that the highlight applies to.
+        /**
+         * The range this highlight applies to.
+         */
         [DataMember(Name = "range")]
+        [JsonProperty(Required = Required.Always)]
         public Range Range { get; set; }
-        //
-        // Summary:
-        //     Gets or sets the kind of highlight.
+
+        /**
+         * The highlight kind, default is DocumentHighlightKind.Text.
+         */
         [DataMember(Name = "kind")]
+        [JsonProperty(Required = Required.Default)]
         public DocumentHighlightKind Kind { get; set; }
     }
 }

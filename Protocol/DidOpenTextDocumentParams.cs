@@ -2,19 +2,16 @@
 
 namespace LspTypes
 {
-    //
-    // Summary:
-    //     Class which represents the parameter that is sent with textDocument/didOpen message.
     [DataContract]
     public class DidOpenTextDocumentParams
     {
         public DidOpenTextDocumentParams() { }
 
-        //
-        // Summary:
-        //     Gets or sets the Microsoft.VisualStudio.LanguageServer.Protocol.TextDocumentItem
-        //     which represents the text document that was opened.
+        /**
+         * The document that was opened.
+         */
         [DataMember(Name = "textDocument")]
+        [JsonProperty(Required = Required.Always)]
         public TextDocumentItem TextDocument { get; set; }
     }
 }
