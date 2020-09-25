@@ -1,21 +1,23 @@
 ﻿namespace LspTypes
 {
-    //
-    // Summary:
-    //     File event type enum.
+    /**
+     * The file event type.
+     */
     public enum FileChangeType
     {
-        //
-        // Summary:
-        //     File was created.
+        /**
+         * The file got created.
+         */
         Created = 1,
-        //
-        // Summary:
-        //     File was changed.
+            
+        /**
+         * The file got changed.
+         */
         Changed = 2,
-        //
-        // Summary:
-        //     File was deleted.
-        Deleted = 3
+
+        /**
+         * The file got deleted.
+         */
+        Deleted = 3,
     }
 }

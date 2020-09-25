@@ -3,19 +3,10 @@ using System.Runtime.Serialization;
 
 namespace LspTypes
 {
-
-    public interface IStaticRegistrationOptions
-    {
-        string Id { get; set; }
-    }
-
-    /**
-     * Static registration options to be returned in the initialize request.
-     */
     [DataContract]
-    public class StaticRegistrationOptions
+    public class DocumentColorRegistrationOptions : TextDocumentRegistrationOptions, IStaticRegistrationOptions, IDocumentColorOptions
     {
-        public StaticRegistrationOptions() { }
+        public DocumentColorRegistrationOptions() { }
 
         /**
          * The id used to register the request. The id can be used to deregister
@@ -24,5 +15,9 @@ namespace LspTypes
         [DataMember(Name = "id")]
         [JsonProperty(Required = Required.Default)]
         public string Id { get; set; }
+
+        [DataMember(Name = "workDoneProgress")]
+        [JsonProperty(Required = Required.Default)]
+        public bool WorkDoneProgress { get; set; }
     }
 }

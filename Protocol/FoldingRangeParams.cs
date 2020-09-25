@@ -1,19 +1,26 @@
-﻿using System.Runtime.Serialization;
+﻿using Newtonsoft.Json;
+using System.Runtime.Serialization;
 
 namespace LspTypes
 {
-    //
-    // Summary:
-    //     Class representing the folding range request parameter.
     [DataContract]
-    public class FoldingRangeParams
+    public class FoldingRangeParams : WorkDoneProgressParams, IPartialResultParams
     {
         public FoldingRangeParams() { }
 
-        //
-        // Summary:
-        //     Gets or sets the text document associated with the folding range request.
+        /**
+         * The text document.
+         */
         [DataMember(Name = "textDocument")]
+        [JsonProperty(Required = Required.Always)]
         public TextDocumentIdentifier TextDocument { get; set; }
+
+        /**
+         * An optional token that a server can use to report partial results (e.g. streaming) to
+         * the client.
+         */
+        [DataMember(Name = "partialResultToken")]
+        [JsonProperty(Required = Required.Default)]
+        public SumType<int, string> PartialResultToken { get; set; }
     }
 }

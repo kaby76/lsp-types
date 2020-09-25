@@ -1,27 +1,29 @@
-﻿using System.Runtime.Serialization;
+﻿using Newtonsoft.Json;
+using System.Runtime.Serialization;
 
 namespace LspTypes
 {
-    //
-    // Summary:
-    //     Class representing the data returned by a textDocument/hover request.
+    /**
+     * The result of a hover request.
+     */
     [DataContract]
     public class Hover
     {
         public Hover() { }
 
-        //
-        // Summary:
-        //     Gets or sets the content for the hover. Object can either be an array or a single
-        //     object. If the object is an array the array can contain objects of type Microsoft.VisualStudio.LanguageServer.Protocol.MarkedString
-        //     and System.String. If the object is not an array it can be of type Microsoft.VisualStudio.LanguageServer.Protocol.MarkedString,
-        //     System.String, or Microsoft.VisualStudio.LanguageServer.Protocol.MarkupContent.
+        /**
+         * The hover's content
+         */
         [DataMember(Name = "contents")]
+        [JsonProperty(Required = Required.Always)]
         public SumType<SumType<string, MarkedString>, SumType<string, MarkedString>[], MarkupContent> Contents { get; set; }
-        //
-        // Summary:
-        //     Gets or sets the range over which the hover applies.
+
+        /**
+         * An optional range is a range inside a text document
+         * that is used to visualize a hover, e.g. by changing the background color.
+         */
         [DataMember(Name = "range")]
+        [JsonProperty(Required = Required.Default)]
         public Range Range { get; set; }
     }
 }

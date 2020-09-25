@@ -3,6 +3,11 @@ using System.Runtime.Serialization;
 
 namespace LspTypes
 {
+    public interface ITextDocumentRegistrationOptions
+    {
+        DocumentFilter[] documentSelector { get; set; }
+    }
+
     [DataContract]
     public class TextDocumentRegistrationOptions
     {

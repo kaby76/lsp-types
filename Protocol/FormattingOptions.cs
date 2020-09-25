@@ -4,27 +4,58 @@ using System.Runtime.Serialization;
 
 namespace LspTypes
 {
-    //
-    // Summary:
-    //     Class which represents formatting options.
+    /**
+     * Value-object describing what options formatting should use.
+     */
     [DataContract]
     public class FormattingOptions
     {
         public FormattingOptions() { }
 
-        //
-        // Summary:
-        //     Gets or sets the number of spaces to be inserted per tab.
+        /**
+         * Size of a tab in spaces.
+         */
         [DataMember(Name = "tabSize")]
+        [JsonProperty(Required = Required.Always)]
         public int TabSize { get; set; }
-        //
-        // Summary:
-        //     Gets or sets a value indicating whether tabs should be spaces.
+
+        /**
+         * Prefer spaces over tabs.
+         */
         [DataMember(Name = "insertSpaces")]
+        [JsonProperty(Required = Required.Always)]
         public bool InsertSpaces { get; set; }
-        //
-        // Summary:
-        //     Gets or sets the other potential formatting options.
+
+        /**
+         * Trim trailing whitespace on a line.
+         *
+         * @since 3.15.0
+         */
+        [DataMember(Name = "trimTrailingWhitespace")]
+        [JsonProperty(Required = Required.Default)]
+        public bool TrimTrailingWhitespace { get; set; }
+
+        /**
+         * Insert a newline character at the end of the file if one does not exist.
+         *
+         * @since 3.15.0
+         */
+        [DataMember(Name = "insertFinalNewline")]
+        [JsonProperty(Required = Required.Default)]
+        public bool InsertFinalNewline { get; set; }
+
+        /**
+         * Trim all newlines after the final newline at the end of the file.
+         *
+         * @since 3.15.0
+         */
+        [DataMember(Name = "trimFinalNewlines")]
+        [JsonProperty(Required = Required.Default)]
+        public bool TrimFinalNewlines { get; set; }
+
+        /**
+         * Signature for further properties.
+         */
         [JsonExtensionData]
         public Dictionary<string, object> OtherOptions { get; set; }
     }

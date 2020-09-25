@@ -3,155 +3,189 @@ using System.Runtime.Serialization;
 
 namespace LspTypes
 {
-    //
-    // Summary:
-    //     Class which represents server capabilities.
     [DataContract]
     public class ServerCapabilities
     {
         public ServerCapabilities() { }
 
-        //
-        // Summary:
-        //     Gets or sets the value which indicates how text document are synced.
+        /**
+         * Defines how text documents are synced. Is either a detailed structure defining each notification or
+         * for backwards compatibility the TextDocumentSyncKind number. If omitted it defaults to `TextDocumentSyncKind.None`.
+         */
         [DataMember(Name = "textDocumentSync")]
-   //TODO     [JsonConverter(typeof(TextDocumentSyncConverter))]
-        public TextDocumentSyncOptions TextDocumentSync { get; set; }
+        public SumType<TextDocumentSyncOptions, int> TextDocumentSync { get; set; }
 
-        //
-        // Summary:
-        //     Gets or sets the value which indicates if completions are supported.
+        /**
+         * The server provides completion support.
+         */
         [DataMember(Name = "completionProvider")]
-        public CompletionOptions CompletionProvider { get; set; }
+        public SumType<bool, CompletionOptions> CompletionProvider { get; set; }
 
-        //
-        // Summary:
-        //     Gets or sets a value indicating whether the server provides hover support.
+        /**
+         * The server provides hover support.
+         */
         [DataMember(Name = "hoverProvider")]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public SumType<bool, HoverOptions> HoverProvider { get; set; }
 
-        //
-        // Summary:
-        //     Gets or sets the value which indicates if signature help is supported.
+        /**
+         * The server provides signature help support.
+         */
         [DataMember(Name = "signatureHelpProvider")]
         public SignatureHelpOptions SignatureHelpProvider { get; set; }
 
-        // MISSING declarationProvider.
+        /**
+         * The server provides go to declaration support.
+         *
+         * @since 3.14.0
+         */
+        [DataMember(Name = "declarationProvider")]
+        public SumType<bool, DeclarationOptions, DeclarationRegistrationOptions> DeclarationProvider { get; set; }
 
-        //
-        // Summary:
-        //     Gets or sets a value indicating whether go to definition is supported.
+        /**
+         * The server provides goto definition support.
+         */
         [DataMember(Name = "definitionProvider")]
-        public bool DefinitionProvider { get; set; }
+        public SumType<bool, DefinitionOptions> DefinitionProvider { get; set; }
 
-        //
-        // Summary:
-        //     Gets or sets a value indicating whether go to type definition is supported.
+        /**
+         * The server provides goto type definition support.
+         *
+         * @since 3.6.0
+         */
         [DataMember(Name = "typeDefinitionProvider")]
-        public bool TypeDefinitionProvider { get; set; }
+        public SumType<bool, TypeDefinitionOptions, TypeDefinitionRegistrationOptions> TypeDefinitionProvider { get; set; }
 
-        //
-        // Summary:
-        //     Gets or sets a value indicating whether go to implementation is supported.
+        /**
+         * The server provides goto implementation support.
+         *
+         * @since 3.6.0
+         */
         [DataMember(Name = "implementationProvider")]
-        public bool ImplementationProvider { get; set; }
+        public SumType<bool, ImplementationOptions, ImplementationRegistrationOptions> ImplementationProvider { get; set; }
 
-        //
-        // Summary:
-        //     Gets or sets a value indicating whether find all references is supported.
+        /**
+         * The server provides find references support.
+         */
         [DataMember(Name = "referencesProvider")]
-        public bool ReferencesProvider { get; set; }
+        public SumType<bool, ReferenceOptions> ReferencesProvider { get; set; }
 
-        //
-        // Summary:
-        //     Gets or sets a value indicating whether the server supports document highlight.
+        /**
+         * The server provides document highlight support.
+         */
         [DataMember(Name = "documentHighlightProvider")]
-        public bool DocumentHighlightProvider { get; set; }
+        public SumType<bool, DocumentHighlightOptions> DocumentHighlightProvider { get; set; }
 
-        //
-        // Summary:
-        //     Gets or sets a value indicating whether document symbols are supported.
+        /**
+         * The server provides document symbol support.
+         */
         [DataMember(Name = "documentSymbolProvider")]
-        public bool DocumentSymbolProvider { get; set; }
+        public SumType<bool, DocumentSymbolOptions> DocumentSymbolProvider { get; set; }
 
-        //
-        // Summary:
-        //     Gets or sets a value indicating whether code actions are supported.
+        /**
+         * The server provides code actions. The `CodeActionOptions` return type is only
+         * valid if the client signals code action literal support via the property
+         * `textDocument.codeAction.codeActionLiteralSupport`.
+         */
         [DataMember(Name = "codeActionProvider")]
-        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+//TODO        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public SumType<bool, CodeActionOptions> CodeActionProvider { get; set; }
 
-        //
-        // Summary:
-        //     Gets or sets the value which indicates if code lens is supported.
+        /**
+         * The server provides code lens.
+         */
         [DataMember(Name = "codeLensProvider")]
         public CodeLensOptions CodeLensProvider { get; set; }
 
-        //
-        // Summary:
-        //     Gets or sets the value which indicates if document link is supported.
+        /**
+         * The server provides document link support.
+         */
         [DataMember(Name = "documentLinkProvider")]
         public DocumentLinkOptions DocumentLinkProvider { get; set; }
 
-        // MISSING colorProvider
+        /**
+         * The server provides color provider support.
+         *
+         * @since 3.6.0
+         */
+        [DataMember(Name = "colorProvider")]
+//TODO        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public SumType<bool, DocumentColorOptions, DocumentColorRegistrationOptions> ColorProvider { get; set; }
 
-        //
-        // Summary:
-        //     Gets or sets a value indicating whether document formatting is supported.
+        /**
+         * The server provides document formatting.
+         */
         [DataMember(Name = "documentFormattingProvider")]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public SumType<bool, DocumentFormattingOptions> DocumentFormattingProvider { get; set; }
 
-        //
-        // Summary:
-        //     Gets or sets a value indicating whether document range formatting is supported.
+        /**
+         * The server provides document range formatting.
+         */
         [DataMember(Name = "documentRangeFormattingProvider")]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public SumType<bool, DocumentRangeFormattingOptions> DocumentRangeFormattingProvider { get; set; }
 
-        //
-        // Summary:
-        //     Gets or sets the value which indicates if document on type formatting is supported.
+        /**
+         * The server provides document formatting on typing.
+         */
         [DataMember(Name = "documentOnTypeFormattingProvider")]
         public DocumentOnTypeFormattingOptions DocumentOnTypeFormattingProvider { get; set; }
 
-        //
-        // Summary:
-        //     Gets or sets a value indicating whether rename is supported.
+        /**
+         * The server provides rename support. RenameOptions may only be
+         * specified if the client states that it supports
+         * `prepareSupport` in its initial `initialize` request.
+         */
         [DataMember(Name = "renameProvider")]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public SumType<bool, RenameOptions> RenameProvider { get; set; }
 
-        //
-        // Summary:
-        //     Gets or sets the value which indicates if folding range is supported.
+        /**
+         * The server provides folding provider support.
+         *
+         * @since 3.10.0
+         */
         [DataMember(Name = "foldingRangeProvider")]
-   //TODO     [JsonConverter(typeof(FoldingRangeOptionsConverter))]
-        public FoldingRangeProviderOptions FoldingRangeProvider { get; set; }
+        public SumType<bool, FoldingRangeOptions, FoldingRangeRegistrationOptions> FoldingRangeProvider { get; set; }
 
-        //
-        // Summary:
-        //     Gets or sets the value which indicates if execute command is supported.
+        /**
+         * The server provides execute command support.
+         */
         [DataMember(Name = "executeCommandProvider")]
         public ExecuteCommandOptions ExecuteCommandProvider { get; set; }
 
-        //
-        // Summary:
-        //     Gets or sets a value indicating whether rename is supported.
+        /**
+         * The server provides selection range support.
+         *
+         * @since 3.15.0
+         */
+        [DataMember(Name = "selectionRangeProvider")]
+        public SumType<bool, SelectionRangeOptions, SelectionRangeRegistrationOptions> SelectionRangeProvider { get; set; }
+                        
+        /**
+         * The server provides semantic tokens support.
+         *
+         * @since 3.16.0
+         */
         [DataMember(Name = "semanticTokensProvider")]
-        public SemanticTokensOptions SemanticTokensProvider { get; set; }
+        public SumType<SemanticTokensOptions, SemanticTokensRegistrationOptions> SemanticTokensProvider { get; set; }
 
-
-        //
-        // Summary:
-        //     Gets or sets a value indicating whether workspace symbols are supported.
+        /**
+         * The server provides workspace symbol support.
+         */
         [DataMember(Name = "workspaceSymbolProvider")]
         public bool WorkspaceSymbolProvider { get; set; }
 
-        //
-        // Summary:
-        //     Gets or sets experimental server capabilities.
+        /**
+         * Workspace specific server capabilities
+         */
+        [DataMember(Name = "workspace")]
+        public _ServerCapabilities_Workspace Workspace { get; set; }
+        
+        /**
+         * Experimental server capabilities.
+         */
         [DataMember(Name = "experimental")]
         public object Experimental { get; set; }
     }

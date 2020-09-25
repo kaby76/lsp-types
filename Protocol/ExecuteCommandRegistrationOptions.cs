@@ -2,18 +2,12 @@
 
 namespace LspTypes
 {
-    //
-    // Summary:
-    //     Class representing the registration options for indicating execute command support.
+    /**
+     * Execute command registration options.
+     */
     [DataContract]
-    public class ExecuteCommandRegistrationOptions
+    public class ExecuteCommandRegistrationOptions : ExecuteCommandOptions
     {
         public ExecuteCommandRegistrationOptions() { }
-
-        //
-        // Summary:
-        //     Gets or sets an array of commands that are to be executed on the server.
-        [DataMember(Name = "commands")]
-        public string[] Commands { get; set; }
     }
 }

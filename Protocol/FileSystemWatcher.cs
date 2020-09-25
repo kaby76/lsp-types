@@ -1,25 +1,35 @@
-﻿using System.Runtime.Serialization;
+﻿using Newtonsoft.Json;
+using System.Runtime.Serialization;
 
 namespace LspTypes
 {
-    //
-    // Summary:
-    //     Class representing the watcher options for Microsoft.VisualStudio.LanguageServer.Protocol.DidChangeWatchedFilesRegistrationOptions
     [DataContract]
     public class FileSystemWatcher
     {
         public FileSystemWatcher() { }
 
-        //
-        // Summary:
-        //     Gets or sets the glob pattern to watch.
+        /**
+         * The  glob pattern to watch.
+         *
+         * Glob patterns can have the following syntax:
+         * - `*` to match one or more characters in a path segment
+         * - `?` to match on one character in a path segment
+         * - `**` to match any number of path segments, including none
+         * - `{}` to group conditions (e.g. `**​/*.{ts,js}` matches all TypeScript and JavaScript files)
+         * - `[]` to declare a range of characters to match in a path segment (e.g., `example.[0-9]` to match on `example.0`, `example.1`, …)
+         * - `[!...]` to negate a range of characters to match in a path segment (e.g., `example.[!0-9]` to match on `example.a`, `example.b`, but not `example.0`)
+         */
         [DataMember(Name = "globPattern")]
+        [JsonProperty(Required = Required.Always)]
         public string GlobPattern { get; set; }
-        //
-        // Summary:
-        //     Gets or sets the Microsoft.VisualStudio.LanguageServer.Protocol.WatchKind values
-        //     that are of interest.
+
+        /**
+         * The kind of events of interest. If omitted it defaults
+         * to WatchKind.Create | WatchKind.Change | WatchKind.Delete
+         * which is 7.
+         */
         [DataMember(Name = "kind")]
-        public WatchKind Kind { get; set; }
+        [JsonProperty(Required = Required.Default)]
+        public int Kind { get; set; }
     }
 }

@@ -1,25 +1,25 @@
-﻿using System.Runtime.Serialization;
+﻿using Newtonsoft.Json;
+using System.Runtime.Serialization;
 
 namespace LspTypes
 {
-    //
-    // Summary:
-    //     Class representing the parameters sent from client to server for the workspace/executeCommand
-    //     request.
     [DataContract]
-    public class ExecuteCommandParams
+    public class ExecuteCommandParams : WorkDoneProgressParams 
     {
         public ExecuteCommandParams() { }
 
-        //
-        // Summary:
-        //     Gets or sets the command identifier associated with the command handler.
+        /**
+         * The identifier of the actual command handler.
+         */
         [DataMember(Name = "command")]
+        [JsonProperty(Required = Required.Always)]
         public string Command { get; set; }
-        //
-        // Summary:
-        //     Gets or sets the arguments that the command should be invoked with.
+
+        /**
+         * Arguments that the command should be invoked with.
+         */
         [DataMember(Name = "arguments")]
+        [JsonProperty(Required = Required.Default)]
         public object[] Arguments { get; set; }
     }
 }

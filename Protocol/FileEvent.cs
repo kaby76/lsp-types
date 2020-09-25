@@ -4,24 +4,26 @@ using System.Runtime.Serialization;
 
 namespace LspTypes
 {
-    //
-    // Summary:
-    //     Class which represents a file change event.
+    /**
+     * An event describing a file change.
+     */
     [DataContract]
     public class FileEvent
     {
         public FileEvent() { }
 
-        //
-        // Summary:
-        //     Gets or sets the URI of the file.
+        /**
+         * The file's URI.
+         */
         [DataMember(Name = "uri")]
-      //TODO  [JsonConverter(typeof(DocumentUriConverter))]
+        [JsonProperty(Required = Required.Always)]
         public string Uri { get; set; }
-        //
-        // Summary:
-        //     Gets or sets the file change type.
+
+        /**
+         * The change type.
+         */
         [DataMember(Name = "type")]
+        [JsonProperty(Required = Required.Always)]
         public FileChangeType FileChangeType { get; set; }
     }
 }

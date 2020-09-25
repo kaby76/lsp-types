@@ -4,26 +4,28 @@ using System.Runtime.Serialization;
 
 namespace LspTypes
 {
-    //
-    // Summary:
-    //     Enum representing various code action kinds.
+    /**
+     * Enum of known range kinds
+     */
     [DataContract]
     [JsonConverter(typeof(StringEnumConverter))]
     public enum FoldingRangeKind
     {
-        //
-        // Summary:
-        //     Comment folding range.
+        /**
+         * Folding range for a comment
+         */
         [EnumMember(Value = "comment")]
         Comment = 0,
-        //
-        // Summary:
-        //     Imports folding range.
+
+        /**
+         * Folding range for a imports or includes
+         */
         [EnumMember(Value = "imports")]
         Imports = 1,
-        //
-        // Summary:
-        //     Region folding range.
+
+        /**
+         * Folding range for a region (e.g. `#region`)
+         */
         [EnumMember(Value = "region")]
         Region = 2
     }

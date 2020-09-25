@@ -3,19 +3,14 @@ using System.Runtime.Serialization;
 
 namespace LspTypes
 {
-
-    public interface IStaticRegistrationOptions
-    {
-        string Id { get; set; }
-    }
-
-    /**
-     * Static registration options to be returned in the initialize request.
-     */
     [DataContract]
-    public class StaticRegistrationOptions
+    public class FoldingRangeRegistrationOptions : TextDocumentRegistrationOptions, IFoldingRangeOptions, IStaticRegistrationOptions
     {
-        public StaticRegistrationOptions() { }
+        public FoldingRangeRegistrationOptions() { }
+
+        [DataMember(Name = "workDoneProgress")]
+        [JsonProperty(Required = Required.Default)]
+        public bool WorkDoneProgress { get; set; }
 
         /**
          * The id used to register the request. The id can be used to deregister
