@@ -3,6 +3,12 @@ using System.Runtime.Serialization;
 
 namespace LspTypes
 {
+    public interface IDocumentOnTypeFormattingOptions
+    {
+        string FirstTriggerCharacter { get; set; }
+        string[] MoreTriggerCharacter { get; set; }
+    }
+
     [DataContract]
     public class DocumentOnTypeFormattingOptions
     {

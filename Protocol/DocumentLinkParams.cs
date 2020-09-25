@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace LspTypes
 {
     [DataContract]
-    public class DocumentLinkParams : WorkDoneProgressParams, PartialResultParams
+    public class DocumentLinkParams : WorkDoneProgressParams, IPartialResultParams
     {
         public DocumentLinkParams() { }
 
@@ -14,5 +14,13 @@ namespace LspTypes
         [DataMember(Name = "textDocument")]
         [JsonProperty(Required = Required.Always)]
         public TextDocumentIdentifier TextDocument { get; set; }
+
+        /**
+         * An optional token that a server can use to report partial results (e.g. streaming) to
+         * the client.
+         */
+        [DataMember(Name = "partialResultToken")]
+        [JsonProperty(Required = Required.Default)]
+        public SumType<int, string> PartialResultToken { get; set; }
     }
 }

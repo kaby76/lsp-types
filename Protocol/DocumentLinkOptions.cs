@@ -1,9 +1,15 @@
-﻿using System.Runtime.Serialization;
+﻿using Newtonsoft.Json;
+using System.Runtime.Serialization;
 
 namespace LspTypes
 {
+    public interface IDocumentLinkOptions
+    {
+        bool ResolveProvider { get; set; }
+    }
+
     [DataContract]
-    public class DocumentLinkOptions : WorkDoneProgressOptions
+    public class DocumentLinkOptions : WorkDoneProgressOptions, IDocumentLinkOptions
     {
         public DocumentLinkOptions() { }
 
