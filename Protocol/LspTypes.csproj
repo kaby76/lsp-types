@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<RootNamespace>LspTypes</RootNamespace>
+		<AssemblyName>LspTypes</AssemblyName>
+		<PackageId>LspTypes</PackageId>
+		<Version>0.0.1</Version>
+		<Authors>Ken Domino</Authors>
+		<Product />
+		<Description></Description>
+		<Copyright>Copyright © 2020</Copyright>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageProjectUrl>https://github.com/kaby76/lsp-types</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/kaby76/lsp-types</RepositoryUrl>
+		<RepositoryType>Git</RepositoryType>
+		<PackageTags>LSP Language-Server-Protocol</PackageTags>
+		<PackageReleaseNotes>For further information, see https://github.com/kaby76/lsp-types.</PackageReleaseNotes>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="StreamJsonRpc" Version="2.5.46" />
+		<PackageReference Include="System.IO.Pipes" Version="4.3.0" />
+		<PackageReference Include="System.IO.Pipes.AccessControl" Version="4.5.1" />
+	</ItemGroup>
+
+</Project>
