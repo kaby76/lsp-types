@@ -2,41 +2,43 @@
 
 namespace LspTypes
 {
-    //
-    // Summary:
-    //     Class which represents configuration values indicating how text documents should
-    //     be synced.
     [DataContract]
     public class TextDocumentSyncOptions
     {
         public TextDocumentSyncOptions() { }
 
-        //
-        // Summary:
-        //     Gets or sets a value indicating whether open and close notifications are sent
-        //     to the server.
+        /**
+         * Open and close notifications are sent to the server. If omitted open close notification should not
+         * be sent.
+         */
         [DataMember(Name = "openClose")]
         public bool OpenClose { get; set; }
-        //
-        // Summary:
-        //     Gets or sets the value indicating how text documents are synced with the server.
+
+        /**
+         * Change notifications are sent to the server. See TextDocumentSyncKind.None, TextDocumentSyncKind.Full
+         * and TextDocumentSyncKind.Incremental. If omitted it defaults to TextDocumentSyncKind.None.
+         */
         [DataMember(Name = "change")]
         public TextDocumentSyncKind Change { get; set; }
-        //
-        // Summary:
-        //     Gets or sets a value indicating whether 'will save' notifications are sent to
-        //     the server.
+
+        /**
+         * If present will save notifications are sent to the server. If omitted the notification should not be
+         * sent.
+         */
         [DataMember(Name = "willSave")]
         public bool WillSave { get; set; }
-        //
-        // Summary:
-        //     Gets or sets a value indicating whether 'will save until' notifications are sent
-        //     to the server.
+
+        /**
+         * If present will save wait until requests are sent to the server. If omitted the request should not be
+         * sent.
+         */
         [DataMember(Name = "willSaveWaitUntil")]
         public bool WillSaveWaitUntil { get; set; }
-        //
-        // Summary:
-        //     Gets or sets a value indicating whether save notifications are sent to the server.
+
+        /**
+         * If present save notifications are sent to the server. If omitted the notification should not be
+         * sent.
+         */
         [DataMember(Name = "save")]
         public SaveOptions Save { get; set; }
     }

@@ -3,9 +3,6 @@ using System.Runtime.Serialization;
 
 namespace LspTypes
 {
-    //
-    // Summary:
-    //     Class representing the signature information initialization setting.
     [DataContract]
     public class _SignatureHelpClientCapabilities_SignatureInformation
     {

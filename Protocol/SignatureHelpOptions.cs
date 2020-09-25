@@ -2,23 +2,26 @@
 
 namespace LspTypes
 {
-    //
-    // Summary:
-    //     Class representing the options for signature help support.
     [DataContract]
-    public class SignatureHelpOptions
+    public class SignatureHelpOptions : WorkDoneProgressOptions 
     {
         public SignatureHelpOptions() { }
 
-        //
-        // Summary:
-        //     Gets or sets the characters that trigger signature help automatically.
+        /**
+         * The characters that trigger signature help
+         * automatically.
+         */
         [DataMember(Name = "triggerCharacters")]
         public string[] TriggerCharacters { get; set; }
-        //
-        // Summary:
-        //     Gets or sets the characters that re-trigger signature help when signature help
-        //     is already showing.
+
+        /**
+         * List of characters that re-trigger signature help.
+         *
+         * These trigger characters are only active when signature help is already showing. All trigger characters
+         * are also counted as re-trigger characters.
+         *
+         * @since 3.15.0
+         */
         [DataMember(Name = "retriggerCharacters")]
         public string[] RetriggerCharacters { get; set; }
     }

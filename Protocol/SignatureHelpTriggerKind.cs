@@ -2,24 +2,27 @@
 
 namespace LspTypes
 {
-    //
-    // Summary:
-    //     Enum which represents the various ways in which completion can be triggered.
+    /**
+     * How a signature help was triggered.
+     *
+     * @since 3.15.0
+     */
     [DataContract]
     public enum SignatureHelpTriggerKind
     {
-        //
-        // Summary:
-        //     Signature help was invoked manually by the user or a command.
+        /**
+         * Signature help was invoked manually by the user or by a command.
+         */
         Invoked = 1,
-        //
-        // Summary:
-        //     Signature help was triggered by a trigger character.
+
+        /**
+         * Signature help was triggered by a trigger character.
+         */
         TriggerCharacter = 2,
-        //
-        // Summary:
-        //     Signature help was triggered by the cursor moving or by the document content
-        //     changing.
-        ContentChange = 3
+
+        /**
+         * Signature help was triggered by the cursor moving or by the document content changing.
+         */
+        ContentChange = 3,
     }
 }

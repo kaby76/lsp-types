@@ -2,27 +2,33 @@
 
 namespace LspTypes
 {
-    //
-    // Summary:
-    //     Class which encapsulates a text document changed event.
+    /**
+     * An event describing a change to a text document. If range and rangeLength are omitted
+     * the new text is considered to be the full content of the document.
+     */
     [DataContract]
     public class TextDocumentContentChangeEvent
     {
         public TextDocumentContentChangeEvent() { }
 
-        //
-        // Summary:
-        //     Gets or sets the range of the text that was changed.
+        /**
+         * The range of the document that changed.
+         */
         [DataMember(Name = "range")]
         public Range Range { get; set; }
-        //
-        // Summary:
-        //     Gets or sets the length of the range that got replaced.
+
+        /**
+         * The optional length of the range that got replaced.
+         *
+         * @deprecated use range instead.
+         */
         [DataMember(Name = "rangeLength")]
-        public int RangeLength { get; set; }
-        //
-        // Summary:
-        //     Gets or sets the new text of the range/document.
+        public int? RangeLength { get; set; }
+
+        /**
+         * The new text for the provided range.
+         */
+        // (or document)
         [DataMember(Name = "text")]
         public string Text { get; set; }
     }

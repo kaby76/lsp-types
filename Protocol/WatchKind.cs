@@ -3,24 +3,23 @@ using System.Runtime.Serialization;
 
 namespace LspTypes
 {
-    //
-    // Summary:
-    //     Enum representing the type of changes to watch for.
     [DataContract]
     [Flags]
     public enum WatchKind
     {
-        //
-        // Summary:
-        //     Create events.
+        /**
+         * Interested in create events.
+         */
         Create = 1,
-        //
-        // Summary:
-        //     Change events.
+
+        /**
+         * Interested in change events
+         */
         Change = 2,
-        //
-        // Summary:
-        //     Delete events.
+
+        /**
+         * Interested in delete events
+         */
         Delete = 4
     }
 }

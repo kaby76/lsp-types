@@ -2,23 +2,23 @@
 
 namespace LspTypes
 {
-    //
-    // Summary:
-    //     Class representing the parameters sent for the textDocument/willSave request.
+    /**
+     * The parameters send in a will save text document notification.
+     */
     [DataContract]
     public class WillSaveTextDocumentParams
     {
         public WillSaveTextDocumentParams() { }
 
-        //
-        // Summary:
-        //     Gets or sets the Microsoft.VisualStudio.LanguageServer.Protocol.TextDocumentIdentifier
-        //     representing the document to be saved.
+        /**
+         * The document that will be saved.
+         */
         [DataMember(Name = "textDocument")]
         public TextDocumentIdentifier TextDocument { get; set; }
-        //
-        // Summary:
-        //     Gets or sets the reason that the text document was saved.
+
+        /**
+         * The 'TextDocumentSaveReason'.
+         */
         [DataMember(Name = "reason")]
         public TextDocumentSaveReason Reason { get; set; }
     }

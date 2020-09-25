@@ -2,23 +2,28 @@
 
 namespace LspTypes
 {
-    //
-    // Summary:
-    //     Enum which represents the various ways to sync text documents.
+    /**
+     * Defines how the host (editor) should sync document changes to the language server.
+     */
     [DataContract]
     public enum TextDocumentSyncKind
     {
-        //
-        // Summary:
-        //     Documents should not be synced at all.
+        /**
+         * Documents should not be synced at all.
+         */
         None = 0,
-        //
-        // Summary:
-        //     Documents are synced by always sending the full text.
+
+        /**
+         * Documents are synced by always sending the full content
+         * of the document.
+         */
         Full = 1,
-        //
-        // Summary:
-        //     Documents are synced by sending only incremental updates.
-        Incremental = 2
+
+        /**
+         * Documents are synced by sending the full content on open.
+         * After that only incremental updates to the document are
+         * send.
+         */
+        Incremental = 2,
     }
 }

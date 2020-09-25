@@ -2,22 +2,24 @@
 
 namespace LspTypes
 {
-    //
-    // Summary:
-    //     Class representing the information needed for unregistering a capability.
+    /**
+     * General parameters to unregister a capability.
+     */
     [DataContract]
     public class Unregistration
     {
         public Unregistration() { }
 
-        //
-        // Summary:
-        //     Gets or sets the id of the unregistration.
+        /**
+         * The id used to unregister the request or notification. Usually an id
+         * provided during the register request.
+         */
         [DataMember(Name = "id")]
         public string Id { get; set; }
-        //
-        // Summary:
-        //     Gets or sets the method to unregister.
+
+        /**
+         * The method / capability to unregister for.
+         */
         [DataMember(Name = "method")]
         public string Method { get; set; }
     }

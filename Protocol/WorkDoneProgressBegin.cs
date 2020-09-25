@@ -8,7 +8,6 @@ namespace LspTypes
     {
         public WorkDoneProgressBegin() { }
 
-        // The type of the Markup
         [DataMember(Name = "kind")]
         [JsonProperty(Required = Required.Always)]
         public string Kind { get; set; }

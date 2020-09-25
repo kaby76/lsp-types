@@ -3,35 +3,36 @@ using Newtonsoft.Json;
 
 namespace LspTypes
 {
-    //
-    // Summary:
-    //     Class which represents a text document.
     [DataContract]
     public class TextDocumentItem
     {
         public TextDocumentItem() { }
 
-        //
-        // Summary:
-        //     Gets or sets the document URI.
+        /**
+         * The text document's URI.
+         */
         [DataMember(Name = "uri")]
         [JsonProperty(Required = Required.Always)]
         public string Uri { get; set; }
-        //
-        // Summary:
-        //     Gets or sets the document language identifier.
+
+        /**
+         * The text document's language identifier.
+         */
         [DataMember(Name = "languageId")]
         [JsonProperty(Required = Required.Always)]
         public string LanguageId { get; set; }
-        //
-        // Summary:
-        //     Gets or sets the document version.
+
+        /**
+         * The version number of this document (it will increase after each
+         * change, including undo/redo).
+         */
         [DataMember(Name = "version")]
         [JsonProperty(Required = Required.Always)]
         public int Version { get; set; }
-        //
-        // Summary:
-        //     Gets or sets the content of the opened text document.
+
+        /**
+         * The content of the opened text document.
+         */
         [DataMember(Name = "text")]
         [JsonProperty(Required = Required.Always)]
         public string Text { get; set; }

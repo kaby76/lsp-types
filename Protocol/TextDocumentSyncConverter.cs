@@ -5,14 +5,6 @@ using System.Globalization;
 
 namespace LspTypes
 {
-    //
-    // Summary:
-    //     Converter which offers custom serialization for Microsoft.VisualStudio.LanguageServer.Protocol.TextDocumentSyncKind
-    //     enum to a Microsoft.VisualStudio.LanguageServer.Protocol.TextDocumentSyncOptions
-    //     object.
-    //
-    // Remarks:
-    //     This is to support backwards compatibility for the protocol.
     public class TextDocumentSyncConverter : JsonConverter
     {
         public TextDocumentSyncConverter() { }
@@ -21,27 +13,7 @@ namespace LspTypes
         {
             return true;
         }
-        //
-        // Summary:
-        //     Deserializes a json value to a Microsoft.VisualStudio.LanguageServer.Protocol.TextDocumentSyncOptions
-        //     object.
-        //
-        // Parameters:
-        //   reader:
-        //     Reader from which to read json value.
-        //
-        //   objectType:
-        //     Type of the json value.
-        //
-        //   existingValue:
-        //     Existing value.
-        //
-        //   serializer:
-        //     Default serializer.
-        //
-        // Returns:
-        //     A Microsoft.VisualStudio.LanguageServer.Protocol.TextDocumentSyncOptions which
-        //     matches the json value.
+
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
             JsonReader jsonReader = reader;
@@ -72,6 +44,7 @@ namespace LspTypes
             documentSyncOptions1.Save = saveOptions1;
             return (object)documentSyncOptions1;
         }
+
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
             JsonWriter jsonWriter = writer;

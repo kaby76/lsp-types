@@ -4,10 +4,6 @@ using System.Runtime.Serialization;
 
 namespace LspTypes
 {
-    //
-    // Summary:
-    //     Class representing a request sent from a language server to modify resources
-    //     in the workspace.
     [DataContract]
     public class WorkspaceEdit
     {

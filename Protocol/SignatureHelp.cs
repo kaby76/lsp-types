@@ -2,30 +2,46 @@
 
 namespace LspTypes
 {
-    //
-    // Summary:
-    //     Class representing the signature of something callable. This class is returned
-    //     from the textDocument/signatureHelp request.
+    /**
+     * Signature help represents the signature of something
+     * callable. There can be multiple signature but only one
+     * active and only one active parameter.
+     */
     [DataContract]
     public class SignatureHelp
     {
         public SignatureHelp() { }
 
-        //
-        // Summary:
-        //     Gets or sets an array of signatures associated with the callable item.
+        /**
+         * One or more signatures. If no signatures are available the signature help
+         * request should return `null`.
+         */
         [DataMember(Name = "signatures")]
         public SignatureInformation[] Signatures { get; set; }
-        //
-        // Summary:
-        //     Gets or sets the active signature. If the value is omitted or falls outside the
-        //     range of Signatures it defaults to zero.
+
+        /**
+         * The active signature. If omitted or the value lies outside the
+         * range of `signatures` the value defaults to zero or is ignore if
+         * the `SignatureHelp` as no signatures.
+         *
+         * Whenever possible implementors should make an active decision about
+         * the active signature and shouldn't rely on a default value.
+         *
+         * In future version of the protocol this property might become
+         * mandatory to better express this.
+         */
         [DataMember(Name = "activeSignature")]
         public int ActiveSignature { get; set; }
-        //
-        // Summary:
-        //     Gets or sets the active parameter. If the value is omitted or falls outside the
-        //     range of Signatures[ActiveSignature].Parameters it defaults to zero.
+
+        /**
+         * The active parameter of the active signature. If omitted or the value
+         * lies outside the range of `signatures[activeSignature].parameters`
+         * defaults to 0 if the active signature has parameters. If
+         * the active signature has no parameters it is ignored.
+         * In future version of the protocol this property might become
+         * mandatory to better express the active parameter if the
+         * active signature does have any.
+         */
         [DataMember(Name = "activeParameter")]
         public int ActiveParameter { get; set; }
     }

@@ -2,23 +2,26 @@
 
 namespace LspTypes
 {
-    //
-    // Summary:
-    //     Enum representing the reason a document was saved.
+    /**
+     * Represents reasons why a text document is saved.
+     */
     [DataContract]
     public enum TextDocumentSaveReason
     {
-        //
-        // Summary:
-        //     Save was manually triggered.
+        /**
+         * Manually triggered, e.g. by the user pressing save, by starting debugging,
+         * or by an API call.
+         */
         Manual = 1,
-        //
-        // Summary:
-        //     Save was automatic after some delay.
+
+        /**
+         * Automatic after a delay.
+         */
         AfterDelay = 2,
-        //
-        // Summary:
-        //     Save was automatic after the editor lost focus.
-        FocusOut = 3
+
+        /**
+         * When the editor lost focus.
+         */
+        FocusOut = 3,
     }
 }

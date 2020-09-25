@@ -2,18 +2,26 @@
 
 namespace LspTypes
 {
-    //
-    // Summary:
-    //     Class which represents parameter sent with window/showMessageRequest requests.
     [DataContract]
-    public class ShowMessageRequestParams : ShowMessageParams
+    public class ShowMessageRequestParams
     {
         public ShowMessageRequestParams() { }
 
-        //
-        // Summary:
-        //     Gets or sets an array of Microsoft.VisualStudio.LanguageServer.Protocol.MessageActionItems
-        //     to present.
+        /**
+         * The message type. See {@link MessageType}
+         */
+        [DataMember(Name = "type")]
+        public int Type { get; set; }
+
+        /**
+         * The actual message
+         */
+        [DataMember(Name = "message")]
+        public string Message { get; set; }
+        
+        /**
+         * The message action items to present.
+         */
         [DataMember(Name = "actions")]
         public MessageActionItem[] Actions { get; set; }
     }

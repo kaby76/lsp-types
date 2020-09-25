@@ -25,9 +25,7 @@ namespace LspTypes
         [DataMember(Name = "language")]
         [JsonProperty(Required = Required.Always)]
         public string Language { get; set; }
-        //
-        // Summary:
-        //     Gets or sets the code.
+
         [DataMember(Name = "value")]
         [JsonProperty(Required = Required.Always)]
         public string Value { get; set; }

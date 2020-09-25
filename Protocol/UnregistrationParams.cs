@@ -2,17 +2,14 @@
 
 namespace LspTypes
 {
-    //
-    // Summary:
-    //     Class representing the parameter sent for the client/unregisterCapability request.
     [DataContract]
     public class UnregistrationParams
     {
         public UnregistrationParams() { }
 
-        //
-        // Summary:
-        //     Gets or sets the capabilities to unregister.
+        // This should correctly be named `unregistrations`. However changing this
+        // is a breaking change and needs to wait until we deliver a 4.x version
+        // of the specification.
         [DataMember(Name = "unregistrations")]
         public Unregistration[] Unregistrations { get; set; }
     }
