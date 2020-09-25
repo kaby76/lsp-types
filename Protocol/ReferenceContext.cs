@@ -2,17 +2,14 @@
 
 namespace LspTypes
 {
-    //
-    // Summary:
-    //     Class representing reference context information for find reference request parameter.
     [DataContract]
     public class ReferenceContext
     {
         public ReferenceContext() { }
 
-        //
-        // Summary:
-        //     Gets or sets a value indicating whether declaration should be included.
+        /**
+         * Include the declaration of the current symbol.
+         */
         [DataMember(Name = "includeDeclaration")]
         public bool IncludeDeclaration { get; set; }
     }

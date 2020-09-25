@@ -13,7 +13,7 @@ namespace LspTypes
          * the server provides a corresponding handler.
          */
         [DataMember(Name = "range")]
-        [JsonProperty(Required = Required.Default)]
+        [JsonProperty(Required = Required.Default, DefaultValueHandling = DefaultValueHandling.Ignore)]
         public SumType<bool, object> Range { get; set; }
 
         /**
@@ -21,7 +21,7 @@ namespace LspTypes
          * the server provides a corresponding handler.
          */
         [DataMember(Name = "full")]
-        [JsonProperty(Required = Required.Default)]
+        [JsonProperty(Required = Required.Default, DefaultValueHandling = DefaultValueHandling.Ignore)]
         public SumType<bool, object> Full { get; set; }
     }
 }

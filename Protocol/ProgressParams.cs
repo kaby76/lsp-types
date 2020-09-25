@@ -12,7 +12,7 @@ namespace LspTypes
          * The progress token provided by the client or server.
          */
         [DataMember(Name = "token")]
-        [JsonProperty(Required = Required.Always)]
+        [JsonProperty(Required = Required.Always, DefaultValueHandling = DefaultValueHandling.Ignore)]
         public SumType<string, int> Token { get; set; }
 
         /**

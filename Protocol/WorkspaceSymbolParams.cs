@@ -23,7 +23,7 @@ namespace LspTypes
          * the client.
          */
         [DataMember(Name = "partialResultToken")]
-        [JsonProperty(Required = Required.Default)]
+        [JsonProperty(Required = Required.Default, DefaultValueHandling = DefaultValueHandling.Ignore)]
         public SumType<int, string> PartialResultToken { get; set; }
     }
 }

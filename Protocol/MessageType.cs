@@ -2,27 +2,27 @@
 
 namespace LspTypes
 {
-    //
-    // Summary:
-    //     Message type enum.
     [DataContract]
     public enum MessageType
     {
-        //
-        // Summary:
-        //     Error message.
+        /**
+         * An error message.
+         */
         Error = 1,
-        //
-        // Summary:
-        //     Warning message.
+            
+        /**
+         * A warning message.
+         */
         Warning = 2,
-        //
-        // Summary:
-        //     Info message.
+
+        /**
+         * An information message.
+         */
         Info = 3,
-        //
-        // Summary:
-        //     Log message.
-        Log = 4
+
+        /**
+         * A log message.
+         */
+        Log = 4,
     }
 }

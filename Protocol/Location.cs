@@ -5,23 +5,15 @@ using System.Runtime.Serialization;
 
 namespace LspTypes
 {
-    //
-    // Summary:
-    //     Class representing a location in a document.
     [DataContract]
     public class Location : IEquatable<Location>
     {
         public Location() { }
 
-        //
-        // Summary:
-        //     Gets or sets the URI for the document the location belongs to.
         [DataMember(Name = "uri")]
         [JsonProperty(Required = Required.Always)]
         public string Uri { get; set; }
-        //
-        // Summary:
-        //     Gets or sets the range of the location in the document.
+
         [DataMember(Name = "range")]
         public Range Range { get; set; }
 

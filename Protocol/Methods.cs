@@ -1,8 +1,5 @@
 ﻿namespace LspTypes
 {
-    //
-    // Summary:
-    //     Class which contains the string values for all common language protocol methods.
     public static class Methods
     {
         public const string InitializeName = "initialize";

@@ -27,7 +27,7 @@ namespace LspTypes
          * The diagnostic's code, which might appear in the user interface.
          */
         [DataMember(Name = "code")]
-        [JsonProperty(Required = Required.Default)]
+        [JsonProperty(Required = Required.Default, DefaultValueHandling = DefaultValueHandling.Ignore)]
         public SumType<string, int> Code { get; set; }
 
         /**

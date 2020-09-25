@@ -1,17 +1,24 @@
 ﻿namespace LspTypes
 {
-    //
-    // Summary:
-    //     Enum representing insert text format for completion items.
+    /**
+     * Defines whether the insert text in a completion item should be interpreted as
+     * plain text or a snippet.
+     */
     public enum InsertTextFormat
     {
-        //
-        // Summary:
-        //     Completion item insertion is plaintext.
+        /**
+         * The primary text to be inserted is treated as a plain string.
+         */
         Plaintext = 1,
-        //
-        // Summary:
-        //     Completion item insertion is snippet.
-        Snippet = 2
+
+        /**
+         * The primary text to be inserted is treated as a snippet.
+         *
+         * A snippet can define tab stops and placeholders with `$1`, `$2`
+         * and `${3:foo}`. `$0` defines the final tab stop, it defaults to
+         * the end of the snippet. Placeholders with equal identifiers are linked,
+         * that is typing in one will update others too.
+         */
+        Snippet = 2,
     }
 }

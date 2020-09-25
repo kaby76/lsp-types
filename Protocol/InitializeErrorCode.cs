@@ -2,15 +2,17 @@
 
 namespace LspTypes
 {
-    //
-    // Summary:
-    //     Enum representing the possible reasons for an initialization error.
+    /**
+     * Known error codes for an `InitializeError`;
+     */
     [DataContract]
     public enum InitializeErrorCode
     {
-        //
-        // Summary:
-        //     Protocol version can't be handled by the server.
+        /**
+         * If the protocol version provided by the client can't be handled by the server.
+         * @deprecated This initialize error got replaced by client capabilities. There is
+         * no version handshake in version 3.0x
+         */
         UnknownProtocolVersion = 1
     }
 }

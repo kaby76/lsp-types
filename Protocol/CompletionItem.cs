@@ -52,7 +52,7 @@ namespace LspTypes
          * A human-readable string that represents a doc-comment.
          */
         [DataMember(Name = "documentation")]
-        [JsonProperty(Required = Required.Default)]
+        [JsonProperty(Required = Required.Default, DefaultValueHandling = DefaultValueHandling.Ignore)]
         public SumType<string, MarkupContent> Documentation { get; set; }
 
         /**

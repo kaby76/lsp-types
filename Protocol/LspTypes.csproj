@@ -5,11 +5,11 @@
 		<RootNamespace>LspTypes</RootNamespace>
 		<AssemblyName>LspTypes</AssemblyName>
 		<PackageId>LspTypes</PackageId>
-		<Version>0.0.1</Version>
+		<Version>0.0.2</Version>
 		<Authors>Ken Domino</Authors>
 		<Product />
 		<Description></Description>
-		<Copyright>Copyright © 2020</Copyright>
+		<Copyright>Copyright Â© 2020</Copyright>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageProjectUrl>https://github.com/kaby76/lsp-types</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/kaby76/lsp-types</RepositoryUrl>

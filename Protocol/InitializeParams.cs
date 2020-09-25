@@ -4,9 +4,6 @@ using System.Runtime.Serialization;
 
 namespace LspTypes
 {
-    //
-    // Summary:
-    //     Class which represents the parameter sent with an initialize method request.
     [DataContract]
     public class InitializeParams : WorkDoneProgressParams
     {

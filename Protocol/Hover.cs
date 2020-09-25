@@ -15,7 +15,7 @@ namespace LspTypes
          * The hover's content
          */
         [DataMember(Name = "contents")]
-        [JsonProperty(Required = Required.Always)]
+        [JsonProperty(Required = Required.Always, DefaultValueHandling = DefaultValueHandling.Ignore)]
         public SumType<SumType<string, MarkedString>, SumType<string, MarkedString>[], MarkupContent> Contents { get; set; }
 
         /**

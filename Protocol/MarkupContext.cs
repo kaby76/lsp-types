@@ -32,12 +32,16 @@ namespace LspTypes
     {
         public MarkupContent() { }
 
-        // The type of the Markup
+        /**
+         * The type of the Markup
+         */
         [DataMember(Name = "kind")]
         [JsonProperty(Required = Required.Always)]
         public MarkupKind Kind { get; set; }
 
-        // The content itself
+        /**
+         * The content itself
+         */
         [DataMember(Name = "value")]
         [JsonProperty(Required = Required.Always)]
         public string Value { get; set; }

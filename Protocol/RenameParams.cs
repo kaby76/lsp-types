@@ -1,29 +1,26 @@
-﻿using System.Runtime.Serialization;
+﻿using Newtonsoft.Json;
+using System.Runtime.Serialization;
 
 namespace LspTypes
 {
-    //
-    // Summary:
-    //     Class representing the rename parameters for the textDocument/rename request.
     [DataContract]
-    public class RenameParams
+    public class RenameParams : TextDocumentPositionParams, IWorkDoneProgressParams
     {
         public RenameParams() { }
 
-        //
-        // Summary:
-        //     Gets or sets the document identifier for the document to format.
-        [DataMember(Name = "textDocument")]
-        public TextDocumentIdentifier TextDocument { get; set; }
-        //
-        // Summary:
-        //     Gets or sets the position at which the request was sent.
-        [DataMember(Name = "position")]
-        public Position Position { get; set; }
-        //
-        // Summary:
-        //     Gets or sets the new name of the renamed symbol.
+        /**
+         * The new name of the symbol. If the given name is not valid the
+         * request must return a [ResponseError](#ResponseError) with an
+         * appropriate message set.
+         */
         [DataMember(Name = "newName")]
         public string NewName { get; set; }
+
+        /**
+         * An optional token that a server can use to report work done progress.
+         */
+        [DataMember(Name = "workDoneToken")]
+        [JsonProperty(Required = Required.Default, DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public SumType<string, int> WorkDoneToken { get; set; }
     }
 }

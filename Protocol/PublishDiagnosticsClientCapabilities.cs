@@ -22,8 +22,7 @@ namespace LspTypes
          * @since 3.15.0
          */
         [DataMember(Name = "tagSupport")]
-        [JsonProperty(Required = Required.Default)]
-        //TODO public _PublishDiagnosticsClientCapabilities_TagSupport TagSupport { get; set; }
+        [JsonProperty(Required = Required.Default, DefaultValueHandling = DefaultValueHandling.Ignore)]
         public SumType<bool,_PublishDiagnosticsClientCapabilities_TagSupport> TagSupport { get; set; }
 
         /**

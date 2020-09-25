@@ -25,7 +25,7 @@ namespace LspTypes
          * using the `client/unregisterCapability` request.
          */
         [DataMember(Name = "changeNotifications")]
-        [JsonProperty(Required = Required.Default)]
+        [JsonProperty(Required = Required.Default, DefaultValueHandling = DefaultValueHandling.Ignore)]
         public SumType<string, bool> ChangeNotifications { get; set; }
     }
 }
