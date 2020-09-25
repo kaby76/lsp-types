@@ -1,30 +1,32 @@
-﻿using System.Runtime.Serialization;
+﻿using Newtonsoft.Json;
+using System.Runtime.Serialization;
 
 namespace LspTypes
 {
-    //
-    // Summary:
-    //     Class which represents the parameter that is sent with textDocument/rangeFormatting
-    //     message.
     [DataContract]
-    public class DocumentRangeFormattingParams
+    public class DocumentRangeFormattingParams : WorkDoneProgressParams
     {
         public DocumentRangeFormattingParams() { }
 
-        //
-        // Summary:
-        //     Gets or sets the identifier for the text document to be formatted.
+        /**
+         * The document to format.
+         */
         [DataMember(Name = "textDocument")]
+        [JsonProperty(Required = Required.Always)]
         public TextDocumentIdentifier TextDocument { get; set; }
-        //
-        // Summary:
-        //     Gets or sets the selection range to be formatted.
+
+        /**
+         * The range to format
+         */
         [DataMember(Name = "range")]
+        [JsonProperty(Required = Required.Always)]
         public Range Range { get; set; }
-        //
-        // Summary:
-        //     Gets or sets the formatting options.
+
+        /**
+         * The format options
+         */
         [DataMember(Name = "options")]
+        [JsonProperty(Required = Required.Always)]
         public FormattingOptions Options { get; set; }
     }
 }

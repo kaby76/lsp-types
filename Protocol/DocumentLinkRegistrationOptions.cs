@@ -1,19 +1,11 @@
-﻿using System.Runtime.Serialization;
+﻿using Newtonsoft.Json;
+using System.Runtime.Serialization;
 
 namespace LspTypes
 {
-    //
-    // Summary:
-    //     Class representing the options for registering textDocument/documentLink support.
     [DataContract]
-    public class DocumentLinkRegistrationOptions
+    public class DocumentLinkRegistrationOptions : TextDocumentRegistrationOptions, DocumentLinkOptions
     {
         public DocumentLinkRegistrationOptions() { }
-
-        //
-        // Summary:
-        //     Gets or sets a value indicating whether resolve providers are supported as well.
-        [DataMember(Name = "resolveProvider")]
-        public bool ResolveProvider { get; set; }
     }
 }

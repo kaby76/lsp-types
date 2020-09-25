@@ -4,9 +4,6 @@ using System;
 
 namespace LspTypes
 {
-    //
-    // Summary:
-    //     TODO: document
     public class DocumentUriConverter : JsonConverter
     {
         public DocumentUriConverter() { }

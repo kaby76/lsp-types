@@ -1,12 +1,10 @@
-﻿using System.Runtime.Serialization;
+﻿using Newtonsoft.Json;
+using System.Runtime.Serialization;
 
 namespace LspTypes
 {
-    //
-    // Summary:
-    //     TODO: Add documentation
     [DataContract]
-    public class DocumentRangeFormattingOptions
+    public class DocumentRangeFormattingOptions : WorkDoneProgressOptions
     {
         public DocumentRangeFormattingOptions() { }
     }

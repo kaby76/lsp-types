@@ -1,19 +1,18 @@
-﻿using System.Runtime.Serialization;
+﻿using Newtonsoft.Json;
+using System.Runtime.Serialization;
 
 namespace LspTypes
 {
-    //
-    // Summary:
-    //     Class which represents the parameter sent with textDocument/documentSymbol requests.
     [DataContract]
-    public class DocumentSymbolParams
+    public class DocumentSymbolParams : WorkDoneProgressParams, PartialResultParams
     {
         public DocumentSymbolParams() { }
 
-        //
-        // Summary:
-        //     Gets or sets the text document.
+        /**
+         * The text document.
+         */
         [DataMember(Name = "textDocument")]
+        [JsonProperty(Required = Required.Always)]
         public TextDocumentIdentifier TextDocument { get; set; }
     }
 }

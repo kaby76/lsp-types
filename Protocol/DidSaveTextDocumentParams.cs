@@ -3,27 +3,24 @@ using System.Runtime.Serialization;
 
 namespace LspTypes
 {
-    //
-    // Summary:
-    //     Class which represents the parameter that is sent with a textDocument/didSave
-    //     message.
     [DataContract]
     public class DidSaveTextDocumentParams
     {
         public DidSaveTextDocumentParams() { }
 
-        //
-        // Summary:
-        //     Gets or sets the Microsoft.VisualStudio.LanguageServer.Protocol.TextDocumentIdentifier
-        //     which represents the text document that was saved.
+        /**
+         * The document that was saved.
+         */
         [DataMember(Name = "textDocument")]
+        [JsonProperty(Required = Required.Always)]
         public TextDocumentIdentifier TextDocument { get; set; }
-        //
-        // Summary:
-        //     Gets or sets the System.String which represents the content of the text document
-        //     when it was saved.
+
+        /**
+         * Optional the content when saved. Depends on the includeText value
+         * when the save notification was requested.
+         */
         [DataMember(Name = "text")]
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty(Required = Required.Default)]
         public string Text { get; set; }
     }
 }

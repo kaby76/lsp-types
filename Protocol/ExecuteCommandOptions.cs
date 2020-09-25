@@ -1,19 +1,18 @@
-﻿using System.Runtime.Serialization;
+﻿using Newtonsoft.Json;
+using System.Runtime.Serialization;
 
 namespace LspTypes
 {
-    //
-    // Summary:
-    //     Class representing the options for execute command support.
     [DataContract]
-    public class ExecuteCommandOptions
+    public class ExecuteCommandOptions : WorkDoneProgressOptions
     {
         public ExecuteCommandOptions() { }
 
-        //
-        // Summary:
-        //     Gets or sets the commands that are to be executed on the server.
+        /**
+         * The commands to be executed on the server
+         */
         [DataMember(Name = "commands")]
+        [JsonProperty(Required = Required.Default)]
         public string[] Commands { get; set; }
     }
 }

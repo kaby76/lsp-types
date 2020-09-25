@@ -1,37 +1,25 @@
-﻿using System.Runtime.Serialization;
+﻿using Newtonsoft.Json;
+using System.Runtime.Serialization;
 
 namespace LspTypes
 {
-    //
-    // Summary:
-    //     Class representing the parameters sent for a textDocument/onTypeFormatting request.
     [DataContract]
-    public class DocumentOnTypeFormattingParams
+    public class DocumentOnTypeFormattingParams : TextDocumentPositionParams
     {
         public DocumentOnTypeFormattingParams() { }
 
-        //
-        // Summary:
-        //     Gets or sets the Microsoft.VisualStudio.LanguageServer.Protocol.TextDocumentIdentifier
-        //     representing the document to format.
-        [DataMember(Name = "textDocument")]
-        public TextDocumentIdentifier TextDocument { get; set; }
-        //
-        // Summary:
-        //     Gets or sets the Microsoft.VisualStudio.LanguageServer.Protocol.DocumentOnTypeFormattingParams.Position
-        //     at which the request was sent.
-        [DataMember(Name = "position")]
-        public Position Position { get; set; }
-        //
-        // Summary:
-        //     Gets or sets the character that was typed.
+        /**
+         * The character that has been typed.
+         */
         [DataMember(Name = "ch")]
+        [JsonProperty(Required = Required.Always)]
         public string Character { get; set; }
-        //
-        // Summary:
-        //     Gets or sets the Microsoft.VisualStudio.LanguageServer.Protocol.FormattingOptions
-        //     for the request.
+
+        /**
+         * The format options.
+         */
         [DataMember(Name = "options")]
+        [JsonProperty(Required = Required.Always)]
         public FormattingOptions Options { get; set; }
     }
 }

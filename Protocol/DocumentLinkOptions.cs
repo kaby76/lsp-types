@@ -2,18 +2,16 @@
 
 namespace LspTypes
 {
-    //
-    // Summary:
-    //     Class representing the document link options for server capabilities.
     [DataContract]
-    public class DocumentLinkOptions
+    public class DocumentLinkOptions : WorkDoneProgressOptions
     {
         public DocumentLinkOptions() { }
 
-        //
-        // Summary:
-        //     Gets or sets a value indicating whether or not the server supports resolve providers.
+        /**
+         * Document links have a resolve provider as well.
+         */
         [DataMember(Name = "resolveProvider")]
+        [JsonProperty(Required = Required.Default)]
         public bool ResolveProvider { get; set; }
     }
 }

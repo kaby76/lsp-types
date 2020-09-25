@@ -1,20 +1,18 @@
-﻿using System.Runtime.Serialization;
+﻿using Newtonsoft.Json;
+using System.Runtime.Serialization;
 
 namespace LspTypes
 {
-    //
-    // Summary:
-    //     Class representing the parameters sent for a textDocument/documentLink request.
     [DataContract]
-    public class DocumentLinkParams
+    public class DocumentLinkParams : WorkDoneProgressParams, PartialResultParams
     {
         public DocumentLinkParams() { }
 
-        //
-        // Summary:
-        //     Gets or sets the Microsoft.VisualStudio.LanguageServer.Protocol.TextDocumentIdentifier
-        //     to provide links for.
+        /**
+         * The document to provide document links for.
+         */
         [DataMember(Name = "textDocument")]
+        [JsonProperty(Required = Required.Always)]
         public TextDocumentIdentifier TextDocument { get; set; }
     }
 }
