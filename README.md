@@ -35,3 +35,9 @@ Or, you can simply add the following to your .csproj file.
 	<ItemGroup>
 		<PackageReference Include="LspTypes" Version="0.0.2" />
 	</ItemGroup>
+
+# Roadmap of future releases
+
+* Scrape the types directly from the [online spec](https://microsoft.github.io/language-server-protocol/specifications/specification-current/).
+* Create a parallel version using [System.Text.Json](https://www.nuget.org/packages/System.Text.Json/) and compare speeds.
+ 
