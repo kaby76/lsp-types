@@ -22,7 +22,9 @@ and StreamJsonRpc, but I am considering porting it over to the newer
 [System.Text.Json](https://www.nuget.org/packages/System.Text.Json/).
 This library is used by [Antlrvsix](https://github.com/kaby76/AntlrVSIX),
 but could easily be
-adapted elsewhere.
+adapted elsewhere. I made it public because this took me a solid week
+(7 days/12 hour days) to code this up. It was painful, and hopefully
+I can spare some of the pain for other developers.
 
 ## Installation
 
