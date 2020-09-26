@@ -1,17 +1,24 @@
 # lsp-types
 This project is a C# library for
-server [Language Server Protocol (LSP)](https://langserver.org/)
-applications. It is based on [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/)
+client or server [Language Server Protocol (LSP)](https://langserver.org/)
+applications, which implements the messages in the protocol.
+It is based on [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/)
 and [StreamJsonRpc](https://www.nuget.org/packages/StreamJsonRpc/),
 and modeled from [Microsoft.VisualStudio.LanguageServer.Protocol](https://www.nuget.org/packages/Microsoft.VisualStudio.LanguageServer.Protocol/).
 I found that Microsoft's library is geared too closely to the
 LSP client for Visual Studio 2019. It is missing major pieces and can't
-be used effectively with other clients, such as Visual Studio Code. While the types defined
-in this library are not scraped from the LSP Spec, I have
-hand-checked every class and interface to make sure that it tries
-to faithfully implement LSP version 3.16. While it currently uses Newtonsoft.Json
-and StreamJsonRpc, I am considering porting it over to the newer
+be used with other clients, such as Visual Studio Code, if you want to
+implement newer features of the protocol. While the types defined
+in this library are not mechanically
+scraped from the LSP Spec, I have
+hand-checked every class and interface to try
+to faithfully implement LSP protocol version 3.16 in the spec.
+It currently uses Newtonsoft.Json
+and StreamJsonRpc, but I am considering porting it over to the newer
 [System.Text.Json](https://www.nuget.org/packages/System.Text.Json/).
+This library is used by [Antlrvsix](https://github.com/kaby76/AntlrVSIX),
+but could easily be
+adapted elsewhere.
 
 ## Installation
 

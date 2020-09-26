@@ -14,16 +14,16 @@ namespace LspTypes
         public SignatureInformation() { }
 
         /**
-	     * The label of this signature. Will be shown in
-	     * the UI.
-	     */
+         * The label of this signature. Will be shown in
+         * the UI.
+         */
         [DataMember(Name = "label")]
         public string Label { get; set; }
 
         /**
-	     * The human-readable doc-comment of this signature. Will be shown
-	     * in the UI but can be omitted.
-	     */
+         * The human-readable doc-comment of this signature. Will be shown
+         * in the UI but can be omitted.
+         */
         [DataMember(Name = "documentation")]
         [JsonProperty(Required = Required.Default, DefaultValueHandling = DefaultValueHandling.Ignore)]
         public SumType<string, MarkupContent> Documentation { get; set; }
@@ -35,12 +35,12 @@ namespace LspTypes
         public ParameterInformation[] Parameters { get; set; }
 
         /**
-	     * The index of the active parameter.
-	     *
-	     * If provided, this is used in place of `SignatureHelp.activeParameter`.
-	     *
-	     * @since 3.16.0 - proposed state
-	     */
+         * The index of the active parameter.
+         *
+         * If provided, this is used in place of `SignatureHelp.activeParameter`.
+         *
+         * @since 3.16.0 - proposed state
+         */
         [DataMember(Name = "activeParameter")]
         public int ActiveParameter { get; set; }
     }
