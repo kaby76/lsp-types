@@ -42,6 +42,12 @@ Or, you can simply add the following to your .csproj file.
 		<PackageReference Include="LspTypes" Version="0.0.2" />
 	</ItemGroup>
 
+# Release notes
+
+* Versions 0.0.1 to 0.0.3 are initial revisions to pull all the types of the LSP protocol from Antlrvsix
+into this library, then bring the types of the protocol up to that listed in the 3.16 spec. The library
+has been linked and run against Antlrvsix.
+
 # Roadmap of future releases
 
 * Scrape the types directly from the [online spec](https://microsoft.github.io/language-server-protocol/specifications/specification-current/).
