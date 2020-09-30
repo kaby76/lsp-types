@@ -1,7 +1,7 @@
 # lsp-types
 This project is a C# library for
 client or server [Language Server Protocol (LSP)](https://langserver.org/)
-applications, which implements the messages in the protocol.
+applications, which implements the messages types in the protocol.
 It is based on [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/)
 and [StreamJsonRpc](https://www.nuget.org/packages/StreamJsonRpc/),
 and modeled from [Microsoft.VisualStudio.LanguageServer.Protocol](https://www.nuget.org/packages/Microsoft.VisualStudio.LanguageServer.Protocol/).
@@ -39,7 +39,7 @@ PM> Install-Package LanguageServerProtocol
 Or, you can simply add the following to your .csproj file.
 
 	<ItemGroup>
-		<PackageReference Include="LspTypes" Version="0.0.2" />
+		<PackageReference Include="LspTypes" Version="0.0.3" />
 	</ItemGroup>
 
 # Release notes
