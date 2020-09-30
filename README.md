@@ -7,11 +7,11 @@ and [StreamJsonRpc](https://www.nuget.org/packages/StreamJsonRpc/),
 and modeled from [Microsoft.VisualStudio.LanguageServer.Protocol](https://www.nuget.org/packages/Microsoft.VisualStudio.LanguageServer.Protocol/).
 The reason I wrote this is because
 I found that Microsoft's library is geared too closely to the
-LSP client for Visual Studio 2019. It is missing major pieces and can't
-be used with other clients, such as Visual Studio Code, if you want to
+LSP client for Visual Studio 2019. It is missing major pieces and 
+I can't use that library in a server to work with other clients,
+such as Visual Studio Code, if one wants to
 implement newer features of the protocol,
-such as semantic highlighting. (Using TextMate regular expressions to
-highlight the tokens in a file is far to primitive in my opinion.)
+such as semantic highlighting.
 While the types defined
 in this library are not mechanically
 scraped from the LSP Spec, I have
