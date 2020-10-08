@@ -50,10 +50,12 @@ PM> Install-Package LanguageServerProtocol
 Or, you can simply add the following to your .csproj file.
 
 	<ItemGroup>
-		<PackageReference Include="LspTypes" Version="0.0.3" />
+		<PackageReference Include="LspTypes" Version="0.0.4" />
 	</ItemGroup>
 
 # Release notes
+
+* Version 0.0.4 corrects the mandatory property of field Capabilities of the class InitilizeResult.
 
 * Versions 0.0.1 to 0.0.3 are initial revisions to pull all the types of the LSP protocol from Antlrvsix
 into this library, then bring the types of the protocol up to that listed in the 3.16 spec. The library
