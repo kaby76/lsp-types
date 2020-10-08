@@ -18,7 +18,7 @@ named with a lowercase name and [attributed with the correct name](https://githu
 The reason I wrote this is because
 I found that Microsoft's library is geared too closely to the
 LSP client for Visual Studio 2019. It is missing major pieces and 
-can't be used in a server that will with other clients,
+can't be used in a server that will work with other clients,
 such as Visual Studio Code, if one wants to
 implement newer features of the protocol,
 such as semantic highlighting.
