@@ -5,7 +5,7 @@
 		<RootNamespace>LspTypes</RootNamespace>
 		<AssemblyName>LspTypes</AssemblyName>
 		<PackageId>LspTypes</PackageId>
-		<Version>0.0.3</Version>
+		<Version>0.0.4</Version>
 		<Authors>Ken Domino</Authors>
 		<Product />
 		<Description></Description>
