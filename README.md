@@ -22,6 +22,7 @@ can't be used in a server that will work with other clients,
 such as Visual Studio Code, if one wants to
 implement newer features of the protocol,
 such as semantic highlighting.
+
 While the types defined
 in this library are not mechanically
 scraped from the LSP Spec, I have
