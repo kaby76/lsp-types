@@ -7,8 +7,12 @@ and [StreamJsonRpc](https://www.nuget.org/packages/StreamJsonRpc/),
 and modeled from [Microsoft.VisualStudio.LanguageServer.Protocol](https://www.nuget.org/packages/Microsoft.VisualStudio.LanguageServer.Protocol/).
 This library allows one to access the information in the LSP message calling parameters
 in a natural manner using a C# class. Type checking is performed by the StreamJsonRpc and
-Newtonsoft.Json libraries for fields that may
-be missing a value.
+Newtonsoft.Json libraries for manditory or illegal values of fields of the class. For example,
+in response to the [Initialize Request](https://microsoft.github.io/language-server-protocol/specifications/specification-3-16/#initialize),
+the server must respond with a [InitializeResult](https://github.com/kaby76/AntlrVSIX/blob/b5d14e579247e05578065e4ad87f6dd97c63a6cd/Server/LanguageServerTarget.cs#L234),
+which contains a [ServerCapabilities](https://github.com/kaby76/AntlrVSIX/blob/b5d14e579247e05578065e4ad87f6dd97c63a6cd/Server/LanguageServerTarget.cs#L153)
+for all the options that the server supports. The `capabilities` field in the spec indicates that it is
+mandatory, so it is marked so, and labeled with the correct lowercase name.
 
 The reason I wrote this is because
 I found that Microsoft's library is geared too closely to the
