@@ -5,6 +5,11 @@ applications, which implements the messages types in the protocol.
 It is based on [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/)
 and [StreamJsonRpc](https://www.nuget.org/packages/StreamJsonRpc/),
 and modeled from [Microsoft.VisualStudio.LanguageServer.Protocol](https://www.nuget.org/packages/Microsoft.VisualStudio.LanguageServer.Protocol/).
+This library allows one to access the information in the LSP message calling parameters
+in a natural manner using a C# class. Type checking is performed by the StreamJsonRpc and
+Newtonsoft.Json libraries for fields that may
+be missing a value.
+
 The reason I wrote this is because
 I found that Microsoft's library is geared too closely to the
 LSP client for Visual Studio 2019. It is missing major pieces and 
