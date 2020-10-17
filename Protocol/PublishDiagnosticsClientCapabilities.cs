@@ -34,5 +34,26 @@ namespace LspTypes
         [DataMember(Name = "versionSupport")]
         [JsonProperty(Required = Required.Default)]
         public bool VersionSupport { get; set; }
+
+        /**
+	     * Client supports a codeDescription property
+         *
+	     * @since 3.16.0 - proposed state
+	     */
+        [DataMember(Name = "codeDescriptionSupport")]
+        [JsonProperty(Required = Required.Default)]
+        public bool? CodeDescriptionSupport { get; set; }
+
+        /**
+	     * Whether code action supports the `data` property which is
+	     * preserved between a `textDocument/publishDiagnostics` and
+	     * `textDocument/codeAction` request.
+	     *
+	     * @since 3.16.0 - proposed state
+	     */
+        [DataMember(Name = "dataSupport")]
+        [JsonProperty(Required = Required.Default)]
+        public bool? DataSupport { get; set; }
+
     }
 }

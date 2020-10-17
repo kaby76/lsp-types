@@ -39,5 +39,15 @@ namespace LspTypes
         [DataMember(Name = "tagSupport")]
         [JsonProperty(Required = Required.Default)]
         public _DocumentSymbolClientCapabilities_TagSupport TagSupport { get; set; }
+
+        /**
+         * The client supports an additional label presented in the UI when
+         * registering a document symbol provider.
+         *
+         * @since 3.16.0
+         */
+        [DataMember(Name = "labelSupport")]
+        [JsonProperty(Required = Required.Default)]
+        public bool? LabelSupport { get; set; }
     }
 }

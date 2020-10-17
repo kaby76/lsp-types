@@ -31,6 +31,15 @@ namespace LspTypes
         public SumType<string, int> Code { get; set; }
 
         /**
+	 * An optional property to describe the error code.
+	 *
+	 * @since 3.16.0 - proposed state
+	 */
+        [DataMember(Name = "codeDescription")]
+        [JsonProperty(Required = Required.Default)]
+        public CodeDescription CodeDescription { get; set; }
+
+        /**
          * A human-readable string describing the source of this
          * diagnostic, e.g. 'typescript' or 'super lint'.
          */
