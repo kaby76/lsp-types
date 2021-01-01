@@ -8,7 +8,7 @@ namespace LspTypes
     {
         public Position() { }
 
-        public Position(int line, int character) : base()
+        public Position(uint line, uint character) : base()
         {
             this.Line = line;
             this.Character = character;
@@ -18,7 +18,7 @@ namespace LspTypes
          * Line position in a document (zero-based).
          */
         [DataMember(Name = "line")]
-        public int Line { get; set; }
+        public uint Line { get; set; }
 
         /**
          * Character offset on a line in a document (zero-based). Assuming that the line is
@@ -29,7 +29,7 @@ namespace LspTypes
          * line length.
          */
         [DataMember(Name = "character")]
-        public int Character { get; set; }
+        public uint Character { get; set; }
 
         public override bool Equals(object obj)
         {
@@ -43,7 +43,7 @@ namespace LspTypes
 
         public override int GetHashCode()
         {
-            return this.Line ^ this.Character;
+            return (int)this.Line ^ (int)this.Character;
         }
 
         public static bool operator ==(Position firstPosition, Position secondPosition)

@@ -13,13 +13,16 @@ namespace LspTypes
          */
         [DataMember(Name = "textDocument")]
         [JsonProperty(Required = Required.Always)]
-        public VersionedTextDocumentIdentifier TextDocument { get; set; }
+        public OptionalVersionedTextDocumentIdentifier TextDocument { get; set; }
 
         /**
          * The edits to be applied.
+      	 *
+	     * @since 3.16.0 - support for AnnotatedTextEdit. This is guarded by the
+	     * client capability `workspace.workspaceEdit.changeAnnotationSupport`
          */
         [DataMember(Name = "edits")]
         [JsonProperty(Required = Required.Always)]
-        public TextEdit[] Edits { get; set; }
+        public SumType<TextEdit,AnnotatedTextEdit>[] Edits { get; set; }
     }
 }

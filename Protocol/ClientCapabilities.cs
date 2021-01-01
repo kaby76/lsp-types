@@ -34,7 +34,16 @@ namespace LspTypes
         [DataMember(Name = "window")]
         [JsonProperty(Required = Required.Default)]
         public _ClientCapabilities_Window Window { get; set; }
-     
+
+        /**
+         * General client capabilities.
+         *
+         * @since 3.16.0
+         */
+        [DataMember(Name = "general")]
+        [JsonProperty(Required = Required.Default)]
+        public _ClientCapabilities_General General { get; set; }
+
         /**
          * Experimental client capabilities.
          */

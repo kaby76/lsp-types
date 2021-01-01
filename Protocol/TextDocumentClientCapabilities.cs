@@ -21,7 +21,7 @@ namespace LspTypes
         [DataMember(Name = "completion")]
         [JsonProperty(Required = Required.Default)]
         public CompletionClientCapabilities Completion { get; set; }
-        
+
         /**
          * Capabilities specific to the `textDocument/hover` request.
          */
@@ -151,8 +151,9 @@ namespace LspTypes
         public RenameClientCapabilities Rename { get; set; }
 
         /**
-         * Capabilities specific to the `textDocument/publishDiagnostics` notification.
-         */
+         * Capabilities specific to the `textDocument/publishDiagnostics`
+	     * notification.
+	     */
         [DataMember(Name = "publishDiagnostics")]
         [JsonProperty(Required = Required.Default)]
         public PublishDiagnosticsClientCapabilities PublishDiagnostics { get; set; }
@@ -176,12 +177,39 @@ namespace LspTypes
         public SelectionRangeClientCapabilities SelectionRange { get; set; }
 
         /**
-         * Capabilities specific to the `textDocument/semanticTokens/*` requests.
+	     * Capabilities specific to the `textDocument/linkedEditingRange` request.
+	     *
+	     * @since 3.16.0
+	     */
+        [DataMember(Name = "linkedEditingRange")]
+        [JsonProperty(Required = Required.Default)]
+        public LinkedEditingRangeClientCapabilities LinkedEditingRange { get; set; }
+
+        /**
+	     * Capabilities specific to the various call hierarchy requests.
+	     *
+	     * @since 3.16.0
+	     */
+        [DataMember(Name = "callHierarchy")]
+        [JsonProperty(Required = Required.Default)]
+        public CallHierarchyClientCapabilities CallHierarchy { get; set; }
+
+        /**
+         * Capabilities specific to the various semantic token requests.
          *
          * @since 3.16.0
          */
         [DataMember(Name = "semanticTokens")]
         [JsonProperty(Required = Required.Default)]
         public SemanticTokensClientCapabilities SemanticTokens { get; set; }
+
+        /**
+         * Capabilities specific to the `textDocument/moniker` request.
+         *
+         * @since 3.16.0
+         */
+        [DataMember(Name = "moniker")]
+        [JsonProperty(Required = Required.Default)]
+        public MonikerClientCapabilities Moniker { get; set; }
     }
 }

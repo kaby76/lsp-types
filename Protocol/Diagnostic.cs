@@ -31,10 +31,10 @@ namespace LspTypes
         public SumType<string, int> Code { get; set; }
 
         /**
-	 * An optional property to describe the error code.
-	 *
-	 * @since 3.16.0 - proposed state
-	 */
+	     * An optional property to describe the error code.
+	     *
+	     * @since 3.16.0
+	     */
         [DataMember(Name = "codeDescription")]
         [JsonProperty(Required = Required.Default)]
         public CodeDescription CodeDescription { get; set; }
@@ -70,5 +70,16 @@ namespace LspTypes
         [DataMember(Name = "relatedInformation")]
         [JsonProperty(Required = Required.Default)]
         public DiagnosticRelatedInformation[] RelatedInformation { get; set; }
+
+        /**
+           * A data entry field that is preserved between a
+           * `textDocument/publishDiagnostics` notification and
+           * `textDocument/codeAction` request.
+           *
+           * @since 3.16.0
+           */
+        [DataMember(Name = "data")]
+        [JsonProperty(Required = Required.Default)]
+        public object Data { get; set; }
     }
 }

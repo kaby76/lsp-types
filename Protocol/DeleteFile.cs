@@ -32,5 +32,14 @@ namespace LspTypes
         [DataMember(Name = "options")]
         [JsonProperty(Required = Required.Default)]
         public DeleteFileOptions Options { get; set; }
+
+        /**
+         * An optional annotation identifer describing the operation.
+         *
+         * @since 3.16.0
+         */
+        [DataMember(Name = "annotationId")]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public ChangeAnnotationIdentifier AnnotationId { get; set; }
     }
 }

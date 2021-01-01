@@ -24,8 +24,8 @@ namespace LspTypes
 
         /**
          * Controls if a cancel button should show to allow the user to cancel the
-         * long running operation. Clients that don't support cancellation are allowed
-         * to ignore the setting.
+         * long running operation. Clients that don't support cancellation are
+	     * allowed to ignore the setting.
          */
         [DataMember(Name = "cancellable")]
         [JsonProperty(Required = Required.Default)]
@@ -48,10 +48,10 @@ namespace LspTypes
          * to ignore the `percentage` value in subsequent in report notifications.
          *
          * The value should be steadily rising. Clients are free to ignore values
-         * that are not following this rule.
+         * that are not following this rule. The value range is [0, 100]
          */
         [DataMember(Name = "percentage")]
         [JsonProperty(Required = Required.Default)]
-        public int Percentage { get; set; }
+        public uint Percentage { get; set; }
     }
 }

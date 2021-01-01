@@ -6,7 +6,7 @@ namespace LspTypes
     /**
      * Structure to capture a description for an error code.
      *
-     * @since 3.16.0 - proposed state
+     * @since 3.16.0
      */
     [DataContract]
     public class CodeDescription

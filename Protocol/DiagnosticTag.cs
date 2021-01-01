@@ -10,8 +10,8 @@
         /**
          * Unused or unnecessary code.
          *
-         * Clients are allowed to render diagnostics with this tag faded out instead of having
-         * an error squiggle.
+         * Clients are allowed to render diagnostics with this tag faded out
+         * instead of having an error squiggle.
          */
         Unnecessary = 1,
 

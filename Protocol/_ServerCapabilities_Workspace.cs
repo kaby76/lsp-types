@@ -15,5 +15,9 @@ namespace LspTypes
          */
         [DataMember(Name = "workspaceFolders")]
         public WorkspaceFoldersServerCapabilities WorkspaceFolders { get; set; }
-      }
+
+        [DataMember(Name = "fileOperations")]
+        public _ServerCapabilities_Workspace_FileOperations FileOperations { get; set; }
+        
+    }
 }

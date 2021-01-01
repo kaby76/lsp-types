@@ -9,12 +9,14 @@ namespace LspTypes
         public ServerCapabilities() { }
 
         /**
-         * Defines how text documents are synced. Is either a detailed structure defining each notification or
-         * for backwards compatibility the TextDocumentSyncKind number. If omitted it defaults to `TextDocumentSyncKind.None`.
+         * Defines how text documents are synced. Is either a detailed structure
+	     * defining each notification or for backwards compatibility the
+	     * TextDocumentSyncKind number. If omitted it defaults to
+	     * `TextDocumentSyncKind.None`.
          */
         [DataMember(Name = "textDocumentSync")]
         [JsonProperty(Required = Required.Default, DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public SumType<TextDocumentSyncOptions, int> TextDocumentSync { get; set; }
+        public SumType<TextDocumentSyncOptions, TextDocumentSyncKind> TextDocumentSync { get; set; }
 
         /**
          * The server provides completion support.
@@ -92,9 +94,9 @@ namespace LspTypes
         public SumType<bool, DocumentSymbolOptions> DocumentSymbolProvider { get; set; }
 
         /**
-         * The server provides code actions. The `CodeActionOptions` return type is only
-         * valid if the client signals code action literal support via the property
-         * `textDocument.codeAction.codeActionLiteralSupport`.
+         * The server provides code actions. The `CodeActionOptions` return type is
+	     * only valid if the client signals code action literal support via the
+	     * property `textDocument.codeAction.codeActionLiteralSupport`.
          */
         [DataMember(Name = "codeActionProvider")]
         [JsonProperty(Required = Required.Default, DefaultValueHandling = DefaultValueHandling.Ignore)]
@@ -173,7 +175,25 @@ namespace LspTypes
         [DataMember(Name = "selectionRangeProvider")]
         [JsonProperty(Required = Required.Default, DefaultValueHandling = DefaultValueHandling.Ignore)]
         public SumType<bool, SelectionRangeOptions, SelectionRangeRegistrationOptions> SelectionRangeProvider { get; set; }
-                        
+
+        /**
+         * The server provides linked editing range support.
+	     *
+	     * @since 3.16.0
+	     */
+        [DataMember(Name = "linkedEditingRangeProvider")]
+        [JsonProperty(Required = Required.Default, DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public SumType<bool, LinkedEditingRangeOptions, LinkedEditingRangeRegistrationOptions> LinkedEditingRangeProvider { get; set; }
+
+        /**
+	     * The server provides call hierarchy support.
+	     *
+	     * @since 3.16.0
+	     */
+        [DataMember(Name = "callHierarchyProvider")]
+        [JsonProperty(Required = Required.Default, DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public SumType<bool, CallHierarchyOptions, CallHierarchyRegistrationOptions> CallHierarchyProvider { get; set; }
+
         /**
          * The server provides semantic tokens support.
          *
@@ -184,10 +204,20 @@ namespace LspTypes
         public SumType<SemanticTokensOptions, SemanticTokensRegistrationOptions> SemanticTokensProvider { get; set; }
 
         /**
+	     * Whether server provides moniker support.
+	     *
+	     * @since 3.16.0
+	     */
+        [DataMember(Name = "monikerProvider")]
+        [JsonProperty(Required = Required.Default, DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public SumType<bool, MonikerOptions, MonikerRegistrationOptions> MonikerProvider { get; set; }
+
+        /**
          * The server provides workspace symbol support.
          */
         [DataMember(Name = "workspaceSymbolProvider")]
-        public bool WorkspaceSymbolProvider { get; set; }
+        [JsonProperty(Required = Required.Default, DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public SumType<bool, WorkspaceSymbolOptions>  WorkspaceSymbolProvider { get; set; }
 
         /**
          * Workspace specific server capabilities

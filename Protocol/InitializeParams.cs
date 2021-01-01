@@ -10,10 +10,11 @@ namespace LspTypes
         public InitializeParams() { }
 
         /**
-         * The process Id of the parent process that started
-         * the server. Is null if the process has not been started by another process.
-         * If the parent process is not alive then the server should exit (see exit notification) its process.
-         */
+         * The process Id of the parent process that started the server. Is null if
+	     * the process has not been started by another process. If the parent
+	     * process is not alive then the server should exit (see exit notification)
+	     * its process.
+	     */
         [DataMember(Name = "processId")]
         //OK if missing [JsonProperty(Required = Required.Always)]
         [JsonProperty(Required = Required.Default)]
@@ -29,10 +30,24 @@ namespace LspTypes
         public _InitializeParams_ClientInfo ClientInfo { get; set; }
 
         /**
+         * The locale the client is currently showing the user interface
+         * in. This must not necessarily be the locale of the operating
+         * system.
+         *
+         * Uses IETF language tags as the value's syntax
+         * (See https://en.wikipedia.org/wiki/IETF_language_tag)
+         *
+         * @since 3.16.0
+         */
+        [DataMember(Name = "locale")]
+        [JsonProperty(Required = Required.Default)]
+        public string Locale { get; set; }
+
+        /**
          * The rootPath of the workspace. Is null
          * if no folder is open.
          *
-         * @deprecated in favour of rootUri.
+         * @deprecated in favour of `rootUri`.
          */
         [DataMember(Name = "rootPath")]
         [JsonProperty(Required = Required.Default)]
@@ -55,13 +70,6 @@ namespace LspTypes
         [DataMember(Name = "initializationOptions")]
         [JsonProperty(Required = Required.Default)]
         public object InitializationOptions { get; set; }
-
-        /**
-         * The capabilities provided by the client (editor or tool)
-         */
-        [DataMember(Name = "capabilities")]
-        [JsonProperty(Required = Required.Default)]
-        public ClientCapabilities Capabilities { get; set; }
 
         /**
          * The initial trace setting. If omitted trace is disabled ('off').

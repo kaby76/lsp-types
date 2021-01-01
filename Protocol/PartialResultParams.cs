@@ -14,8 +14,8 @@ namespace LspTypes
         public PartialResultParams() { }
 
         /**
-         * An optional token that a server can use to report partial results (e.g. streaming) to
-         * the client.
+         * An optional token that a server can use to report partial results (e.g.
+	     * streaming) to the client.
          */
         [DataMember(Name = "partialResultToken")]
         [JsonProperty(Required = Required.Default, DefaultValueHandling = DefaultValueHandling.Ignore)]

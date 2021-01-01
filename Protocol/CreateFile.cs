@@ -31,5 +31,14 @@ namespace LspTypes
         [DataMember(Name = "options")]
         [JsonProperty(Required = Required.Default)]
         public CreateFileOptions Options { get; set; }
-    }
+
+        /**
+         * An optional annotation identifer describing the operation.
+         *
+         * @since 3.16.0
+         */
+        [DataMember(Name = "annotationId")]
+        [JsonProperty(Required = Required.Default)]
+        public ChangeAnnotationIdentifier AnnotationId { get; set; }
+ }
 }
