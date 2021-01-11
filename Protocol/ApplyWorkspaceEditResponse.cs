@@ -30,5 +30,15 @@ namespace LspTypes
         [DataMember(Name = "failureReason")]
         [JsonProperty(Required = Required.Default)]
         public string FailureReason { get; set; }
+
+        /**
+         * Depending on the client's failure handling strategy `failedChange`
+         * might contain the index of the change that failed. This property is
+         * only available if the client signals a `failureHandlingStrategy`
+         * in its client capabilities.
+         */
+        [DataMember(Name = "failedChange")]
+        [JsonProperty(Required = Required.Default)]
+        public uint? FailedChange { get; set; }
     }
 }

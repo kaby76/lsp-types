@@ -5,11 +5,11 @@ namespace LspTypes
 {
     public interface ITextDocumentRegistrationOptions
     {
-        DocumentFilter[] documentSelector { get; set; }
+        DocumentFilter[] DocumentSelector { get; set; }
     }
 
     [DataContract]
-    public class TextDocumentRegistrationOptions
+    public class TextDocumentRegistrationOptions : ITextDocumentRegistrationOptions
     {
         public TextDocumentRegistrationOptions() { }
 

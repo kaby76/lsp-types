@@ -13,6 +13,6 @@ namespace LspTypes
          */
         [DataMember(Name = "dynamicRegistration")]
         [JsonProperty(Required = Required.Default)]
-        public bool DynamicRegistration { get; set; }
+        public bool? DynamicRegistration { get; set; }
     }
 }

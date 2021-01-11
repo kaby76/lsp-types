@@ -6,8 +6,9 @@ namespace LspTypes
      * A code lens represents a command that should be shown along with
      * source text, like the number of references, a way to run tests, etc.
      *
-     * A code lens is _unresolved_ when no command is associated to it. For performance
-     * reasons the creation of a code lens and resolving should be done in two stages.
+     * A code lens is _unresolved_ when no command is associated to it. For
+     * performance reasons the creation of a code lens and resolving should be done
+     * in two stages.
      */
     [DataContract]
     public class CodeLens
@@ -15,7 +16,8 @@ namespace LspTypes
         public CodeLens() { }
 
         /**
-         * The range in which this code lens is valid. Should only span a single line.
+         * The range in which this code lens is valid. Should only span a single
+	     * line.
          */
         [DataMember(Name = "range")]
         public Range Range { get; set; }

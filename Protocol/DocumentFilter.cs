@@ -13,14 +13,14 @@ namespace LspTypes
          */
         [DataMember(Name = "language")]
         [JsonProperty(Required = Required.Default)]
-        string Language { get; set; }
+        public string Language { get; set; }
 
         /**
          * A Uri [scheme](#Uri.scheme), like `file` or `untitled`.
          */
         [DataMember(Name = "scheme")]
         [JsonProperty(Required = Required.Default)]
-        string Scheme { get; set; }
+        public string Scheme { get; set; }
 
         /**
          * A glob pattern, like `*.{ts,js}`.
@@ -39,6 +39,6 @@ namespace LspTypes
 	     */
         [DataMember(Name = "pattern")]
         [JsonProperty(Required = Required.Default)]
-        string Pattern { get; set; }
+        public string Pattern { get; set; }
     }
 }

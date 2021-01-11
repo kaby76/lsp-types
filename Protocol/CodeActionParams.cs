@@ -18,16 +18,16 @@ namespace LspTypes
         public TextDocumentIdentifier TextDocument { get; set; }
 
         /**
-         * Context carrying additional information.
-         */
-        [DataMember(Name = "context")]
-        public CodeActionContext Context { get; set; }
-
-        /**
          * The range for which the command was invoked.
          */
         [DataMember(Name = "range")]
         public Range Range { get; set; }
+
+        /**
+         * Context carrying additional information.
+         */
+        [DataMember(Name = "context")]
+        public CodeActionContext Context { get; set; }
 
         /**
          * An optional token that a server can use to report partial results (e.g. streaming) to

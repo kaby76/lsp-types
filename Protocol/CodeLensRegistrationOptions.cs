@@ -12,10 +12,10 @@ namespace LspTypes
          * Code lens has a resolve provider as well.
          */
         [DataMember(Name = "resolveProvider")]
+        public bool? ResolveProvider { get; set; }
 
-        public bool ResolveProvider { get; set; }
         [DataMember(Name = "workDoneProgress")]
         [JsonProperty(Required = Required.Default)]
-        public bool WorkDoneProgress { get; set; }
+        public bool? WorkDoneProgress { get; set; }
     }
 }

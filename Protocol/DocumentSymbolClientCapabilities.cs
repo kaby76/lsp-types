@@ -13,11 +13,12 @@ namespace LspTypes
          */
         [DataMember(Name = "dynamicRegistration")]
         [JsonProperty(Required = Required.Default)]
-        public bool DynamicRegistration { get; set; }
+        public bool? DynamicRegistration { get; set; }
 
         /**
-          * Specific capabilities for the `SymbolKind` in the `textDocument/documentSymbol` request.
-          */
+         * Specific capabilities for the `SymbolKind` in the
+	     * `textDocument/documentSymbol` request.
+	     */
         [DataMember(Name = "symbolKind")]
         [JsonProperty(Required = Required.Default)]
         public _DocumentSymbolClientCapabilities_SymbolKind SymbolKind { get; set; }

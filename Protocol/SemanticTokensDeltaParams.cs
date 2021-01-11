@@ -15,8 +15,8 @@ namespace LspTypes
         public TextDocumentIdentifier TextDocument { get; set; }
 
         /**
-	     * The result id of a previous response. The result Id can either point to a full response
-	     * or a delta response depending on what was received last.
+	     * The result id of a previous response. The result Id can either point to
+	     * a full response or a delta response depending on what was received last.
 	     */
         [DataMember(Name = "previousResultId")]
         [JsonProperty(Required = Required.Always)]

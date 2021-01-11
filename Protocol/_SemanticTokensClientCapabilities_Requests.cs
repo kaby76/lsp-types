@@ -9,16 +9,16 @@ namespace LspTypes
         public _SemanticTokensClientCapabilities_Requests() { }
 
         /**
-         * The client will send the `textDocument/semanticTokens/range` request if
-         * the server provides a corresponding handler.
+         * The client will send the `textDocument/semanticTokens/range` request
+		 * if the server provides a corresponding handler.
          */
         [DataMember(Name = "range")]
         [JsonProperty(Required = Required.Default, DefaultValueHandling = DefaultValueHandling.Ignore)]
         public SumType<bool, object> Range { get; set; }
 
         /**
-         * The client will send the `textDocument/semanticTokens/full` request if
-         * the server provides a corresponding handler.
+         * The client will send the `textDocument/semanticTokens/full` request
+		 * if the server provides a corresponding handler.
          */
         [DataMember(Name = "full")]
         [JsonProperty(Required = Required.Default, DefaultValueHandling = DefaultValueHandling.Ignore)]

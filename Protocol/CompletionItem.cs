@@ -29,7 +29,7 @@ namespace LspTypes
          */
         [DataMember(Name = "kind")]
         [JsonProperty(Required = Required.Default)]
-        public CompletionItemKind Kind { get; set; }
+        public CompletionItemKind? Kind { get; set; }
 
         /**
          * Tags for this completion item.
@@ -62,7 +62,7 @@ namespace LspTypes
          */
         [DataMember(Name = "deprecated")]
         [JsonProperty(Required = Required.Default)]
-        public bool Deprecated { get; set; }
+        public bool? Deprecated { get; set; }
 
         /**
          * Select this item when showing.
@@ -73,7 +73,7 @@ namespace LspTypes
          */
         [DataMember(Name = "preselect")]
         [JsonProperty(Required = Required.Default)]
-        public bool Preselect { get; set; }
+        public bool? Preselect { get; set; }
 
         /**
          * A string that should be used when comparing this item
@@ -97,62 +97,92 @@ namespace LspTypes
          *
          * The `insertText` is subject to interpretation by the client side.
          * Some tools might not take the string literally. For example
-         * VS Code when code complete is requested in this example `con<cursor position>`
-         * and a completion item with an `insertText` of `console` is provided it
-         * will only insert `sole`. Therefore it is recommended to use `textEdit` instead
-         * since it avoids additional client side interpretation.
+         * VS Code when code complete is requested in this example
+	     * `con<cursor position>` and a completion item with an `insertText` of
+	     * `console` is provided it will only insert `sole`. Therefore it is
+	     * recommended to use `textEdit` instead since it avoids additional client
+	     * side interpretation.
          */
         [DataMember(Name = "insertText")]
         [JsonProperty(Required = Required.Default)]
         public string InsertText { get; set; }
 
         /**
-         * The format of the insert text. The format applies to both the `insertText` property
-         * and the `newText` property of a provided `textEdit`. If omitted defaults to
-         * `InsertTextFormat.PlainText`.
-         */
+         * The format of the insert text. The format applies to both the
+	     * `insertText` property and the `newText` property of a provided
+	     * `textEdit`. If omitted defaults to `InsertTextFormat.PlainText`.
+	     */
         [DataMember(Name = "insertTextFormat")]
         [DefaultValue(InsertTextFormat.Plaintext)]
         [JsonProperty(Required = Required.Default)]
         public InsertTextFormat InsertTextFormat { get; set; }
 
         /**
-         * An edit which is applied to a document when selecting this completion. When an edit is provided the value of
-         * `insertText` is ignored.
+         * How whitespace and indentation is handled during completion
+         * item insertion. If not provided the client's default value depends on
+         * the `textDocument.completion.insertTextMode` client capability.
          *
-         * *Note:* The range of the edit must be a single line range and it must contain the position at which completion
-         * has been requested.
+         * @since 3.16.0
+         */
+        [DataMember(Name = "insertTextMode")]
+        [JsonProperty(Required = Required.Default)]
+        public InsertTextMode? InsertTextMode { get; set; }
+
+        /**
+         * An edit which is applied to a document when selecting this completion.
+	     * When an edit is provided the value of `insertText` is ignored.
+	     *
+	     * *Note:* The range of the edit must be a single line range and it must
+	     * contain the position at which completion has been requested.
+	     *
+	     * Most editors support two different operations when accepting a completion
+	     * item. One is to insert a completion text and the other is to replace an
+	     * existing text with a completion text. Since this can usually not be
+	     * predetermined by a server it can report both ranges. Clients need to
+	     * signal support for `InsertReplaceEdits` via the
+	     * `textDocument.completion.insertReplaceSupport` client capability
+	     * property.
+	     *
+	     * *Note 1:* The text edit's range as well as both ranges from an insert
+	     * replace edit must be a [single line] and they must contain the position
+	     * at which completion has been requested.
+	     * *Note 2:* If an `InsertReplaceEdit` is returned the edit's insert range
+	     * must be a prefix of the edit's replace range, that means it must be
+	     * contained and starting at the same position.
+	     *
+	     * @since 3.16.0 additional type `InsertReplaceEdit`
          */
         [DataMember(Name = "textEdit")]
         [JsonProperty(Required = Required.Default)]
-        public TextEdit TextEdit { get; set; }
+        public SumType<TextEdit, InsertReplaceEdit>? TextEdit { get; set; }
 
         /**
          * An optional array of additional text edits that are applied when
-         * selecting this completion. Edits must not overlap (including the same insert position)
-         * with the main edit nor with themselves.
-         *
-         * Additional text edits should be used to change text unrelated to the current cursor position
-         * (for example adding an import statement at the top of the file if the completion item will
-         * insert an unqualified type).
-         */
+	     * selecting this completion. Edits must not overlap (including the same
+	     * insert position) with the main edit nor with themselves.
+	     *
+	     * Additional text edits should be used to change text unrelated to the
+	     * current cursor position (for example adding an import statement at the
+	     * top of the file if the completion item will insert an unqualified type).
+	     */
         [DataMember(Name = "additionalTextEdits")]
         [JsonProperty(Required = Required.Default)]
         public TextEdit[] AdditionalTextEdits { get; set; }
 
         /**
-         * An optional set of characters that when pressed while this completion is active will accept it first and
-         * then type that character. *Note* that all commit characters should have `length=1` and that superfluous
-         * characters will be ignored.
+         * An optional set of characters that when pressed while this completion is
+	     * active will accept it first and then type that character. *Note* that all
+	     * commit characters should have `length=1` and that superfluous characters
+	     * will be ignored.
          */
         [DataMember(Name = "commitCharacters")]
         [JsonProperty(Required = Required.Default)]
         public string[] CommitCharacters { get; set; }
 
         /**
-         * An optional command that is executed *after* inserting this completion. *Note* that
-         * additional modifications to the current document should be described with the
-         * additionalTextEdits-property.
+         * An optional command that is executed *after* inserting this completion.
+	     * *Note* that additional modifications to the current document should be
+	     * described with the additionalTextEdits-property.
          */
         [DataMember(Name = "command")]
         [JsonProperty(Required = Required.Default)]

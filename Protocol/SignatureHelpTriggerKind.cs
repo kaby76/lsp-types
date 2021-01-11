@@ -21,7 +21,8 @@ namespace LspTypes
         TriggerCharacter = 2,
 
         /**
-         * Signature help was triggered by the cursor moving or by the document content changing.
+         * Signature help was triggered by the cursor moving or by the document
+	     * content changing.
          */
         ContentChange = 3,
     }

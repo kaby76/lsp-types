@@ -13,14 +13,14 @@ namespace LspTypes
          */
         [DataMember(Name = "dynamicRegistration")]
         [JsonProperty(Required = Required.Default)]
-        public bool dynamicRegistration { get; set; }
+        public bool? dynamicRegistration { get; set; }
 
         /**
          * The client supports sending will save notifications.
          */
         [DataMember(Name = "willSave")]
         [JsonProperty(Required = Required.Default)]
-        public bool WillSave { get; set; }
+        public bool? WillSave { get; set; }
 
         /**
          * The client supports sending a will save request and
@@ -29,13 +29,13 @@ namespace LspTypes
          */
         [DataMember(Name = "willSaveWaitUntil")]
         [JsonProperty(Required = Required.Default)]
-        public bool WillSaveWaitUntil { get; set; }
+        public bool? WillSaveWaitUntil { get; set; }
 
         /**
          * The client supports did save notifications.
          */
         [DataMember(Name = "didSave")]
         [JsonProperty(Required = Required.Default)]
-        public bool DidSave { get; set; }
+        public bool? DidSave { get; set; }
     }
 }

@@ -1,9 +1,8 @@
-﻿using System.Runtime.Serialization;
+﻿using Newtonsoft.Json;
+using System.Runtime.Serialization;
 
 namespace LspTypes
 {
-
-
     [DataContract]
     public class SemanticTokens
     {
@@ -14,9 +13,11 @@ namespace LspTypes
          * send a delta.
          */
         [DataMember(Name = "resultId")]
-        public string resultId { get; set; }
+        [JsonProperty(Required = Required.Default)]
+        public string ResultId { get; set; }
 
         [DataMember(Name = "data")]
-        public int[] data { get; set; }
+        [JsonProperty(Required = Required.Default)]
+        public uint[] Data { get; set; }
     }
 }

@@ -40,6 +40,6 @@ namespace LspTypes
          */
         [DataMember(Name = "annotationId")]
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public ChangeAnnotationIdentifier AnnotationId { get; set; }
+        public string AnnotationId { get; set; }
     }
 }

@@ -13,7 +13,7 @@ namespace LspTypes
          */
         [DataMember(Name = "dynamicRegistration")]
         [JsonProperty(Required = Required.Default)]
-        public bool DynamicRegistration { get; set; }
+        public bool? DynamicRegistration { get; set; }
 
         /**
          * Whether the client supports the `tooltip` property on `DocumentLink`.
@@ -22,6 +22,6 @@ namespace LspTypes
          */
         [DataMember(Name = "tooltipSupport")]
         [JsonProperty(Required = Required.Default)]
-        public bool TooltipSupport { get; set; }
+        public bool? TooltipSupport { get; set; }
     }
 }

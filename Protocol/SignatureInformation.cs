@@ -39,9 +39,9 @@ namespace LspTypes
          *
          * If provided, this is used in place of `SignatureHelp.activeParameter`.
          *
-         * @since 3.16.0 - proposed state
+         * @since 3.16.0
          */
         [DataMember(Name = "activeParameter")]
-        public int ActiveParameter { get; set; }
+        public uint? ActiveParameter { get; set; }
     }
 }

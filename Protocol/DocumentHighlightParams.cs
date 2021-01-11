@@ -3,6 +3,7 @@ using System.Runtime.Serialization;
 
 namespace LspTypes
 {
+    [DataContract]
     public class DocumentHighlightParams : TextDocumentPositionParams, IWorkDoneProgressParams, IPartialResultParams
     {
         public DocumentHighlightParams() { }

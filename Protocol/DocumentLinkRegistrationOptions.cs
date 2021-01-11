@@ -13,6 +13,6 @@ namespace LspTypes
          */
         [DataMember(Name = "resolveProvider")]
         [JsonProperty(Required = Required.Default)]
-        public bool ResolveProvider { get; set; }
+        public bool? ResolveProvider { get; set; }
     }
 }

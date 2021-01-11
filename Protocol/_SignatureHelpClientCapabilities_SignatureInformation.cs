@@ -24,13 +24,13 @@ namespace LspTypes
         public _SignatureHelpClientCapabilities_SignatureInformation_ParameterInformation ParameterInformation { get; set; }
 
         /**
-         * The client support the `activeParameter` property on `SignatureInformation`
-         * literal.
+         * The client supports the `activeParameter` property on
+		 * `SignatureInformation` literal.
          *
-         * @since 3.16.0 - proposed state
+         * @since 3.16.0
          */
         [DataMember(Name = "activeParameterSupport")]
         [JsonProperty(Required = Required.Default)]
-        public bool ActiveParameterSupport { get; set; }
+        public bool? ActiveParameterSupport { get; set; }
     }
 }

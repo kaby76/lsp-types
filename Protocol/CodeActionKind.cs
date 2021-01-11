@@ -77,7 +77,8 @@ namespace LspTypes
         Source = 6,
 
         /**
-         * Base kind for an organize imports source action: `source.organizeImports`.
+         * Base kind for an organize imports source action:
+	     * `source.organizeImports`.         
          */
         [EnumMember(Value = "source.organizeImports")]
         SourceOrganizeImports = 7,

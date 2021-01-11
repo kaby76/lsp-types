@@ -9,8 +9,9 @@ namespace LspTypes
         public SignatureHelpParams() { }
 
         /**
-         * The signature help context. This is only available if the client specifies
-         * to send this using the client capability  `textDocument.signatureHelp.contextSupport === true`
+         * The signature help context. This is only available if the client
+	     * specifies to send this using the client capability
+	     * `textDocument.signatureHelp.contextSupport === true`
          *
          * @since 3.15.0
          */

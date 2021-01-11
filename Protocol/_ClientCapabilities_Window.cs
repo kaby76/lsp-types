@@ -17,7 +17,7 @@ namespace LspTypes
          */
 		[DataMember(Name = "workDoneProgress")]
 		[JsonProperty(Required = Required.Default)]
-		public bool WorkDoneProgress { get; set; }
+		public bool? WorkDoneProgress { get; set; }
 
 		/**
 	     * Capabilities specific to the showMessage request

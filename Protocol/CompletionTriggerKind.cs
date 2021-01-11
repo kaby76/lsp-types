@@ -16,7 +16,8 @@ namespace LspTypes
 
         /**
          * Completion was triggered by a trigger character specified by
-         * the `triggerCharacters` properties of the `CompletionRegistrationOptions`.
+         * the `triggerCharacters` properties of the
+	     * `CompletionRegistrationOptions`.
          */
         TriggerCharacter = 2,
 

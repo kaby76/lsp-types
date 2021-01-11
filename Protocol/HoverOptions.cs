@@ -3,7 +3,7 @@
 namespace LspTypes
 {
     [DataContract]
-    public class HoverOptions
+    public class HoverOptions : WorkDoneProgressOptions, IHoverOptions
     {
         public HoverOptions() { }
     }

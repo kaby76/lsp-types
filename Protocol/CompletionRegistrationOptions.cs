@@ -40,10 +40,11 @@ namespace LspTypes
          * information for a completion item.
          */
         [DataMember(Name = "resolveProvider")]
-        public bool ResolveProvider { get; set; }
+        public bool? ResolveProvider { get; set; }
+
 
         [DataMember(Name = "workDoneProgress")]
         [JsonProperty(Required = Required.Default)]
-        public bool WorkDoneProgress { get; set; }
+        public bool? WorkDoneProgress { get; set; }
     }
 }

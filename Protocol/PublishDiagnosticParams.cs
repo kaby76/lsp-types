@@ -17,13 +17,14 @@ namespace LspTypes
         public string Uri { get; set; }
 
         /**
-	     * Optional the version number of the document the diagnostics are published for.
+	     * Optional the version number of the document the diagnostics are published
+	     * for.
 	     *
 	     * @since 3.15.0
 	     */
         [DataMember(Name = "version")]
         [JsonProperty(Required = Required.Default)]
-        public int Version { get; set; }
+        public uint? Version { get; set; }
 
 
         /**
@@ -32,6 +33,5 @@ namespace LspTypes
         [DataMember(Name = "diagnostics")]
         [JsonProperty(Required = Required.Always)]
         public Diagnostic[] Diagnostics { get; set; }
-
     }
 }

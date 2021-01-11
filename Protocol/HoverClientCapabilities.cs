@@ -13,11 +13,12 @@ namespace LspTypes
          */
         [DataMember(Name = "dynamicRegistration")]
         [JsonProperty(Required = Required.Default)]
-        public bool DynamicRegistration { get; set; }
+        public bool? DynamicRegistration { get; set; }
 
         /**
-         * Client supports the follow content formats for the content
-         * property. The order describes the preferred format of the client.
+         * Client supports the follow content formats if the content
+	     * property refers to a `literal of type MarkupContent`.
+	     * The order describes the preferred format of the client.
          */
         [DataMember(Name = "contentFormat")]
         [JsonProperty(Required = Required.Default)]

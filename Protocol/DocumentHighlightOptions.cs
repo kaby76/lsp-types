@@ -8,4 +8,9 @@ namespace LspTypes
     {
         public DocumentHighlightOptions() { }
     }
+
+    public interface IDocumentHighlightOptions : IWorkDoneProgressOptions
+    {
+    }
+
 }

@@ -3,8 +3,8 @@
 namespace LspTypes
 {
     /**
-     * An event describing a change to a text document. If range and rangeLength are omitted
-     * the new text is considered to be the full content of the document.
+     * An event describing a change to a text document. If range and rangeLength are
+     * omitted the new text is considered to be the full content of the document.
      */
     [DataContract]
     public class TextDocumentContentChangeEvent
@@ -23,7 +23,7 @@ namespace LspTypes
          * @deprecated use range instead.
          */
         [DataMember(Name = "rangeLength")]
-        public int? RangeLength { get; set; }
+        public uint? RangeLength { get; set; }
 
         /**
          * The new text for the provided range.

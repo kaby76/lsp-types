@@ -9,13 +9,13 @@ namespace LspTypes
         public TypeDefinitionClientCapabilities() { }
 
         /**
-         * Whether implementation supports dynamic registration. If this is set to `true`
-         * the client supports the new `TypeDefinitionRegistrationOptions` return value
-         * for the corresponding server capability as well.
+	     * Whether implementation supports dynamic registration. If this is set to
+	     * `true` the client supports the new `TypeDefinitionRegistrationOptions`
+	     * return value for the corresponding server capability as well.
          */
         [DataMember(Name = "dynamicRegistration")]
         [JsonProperty(Required = Required.Default)]
-        public bool DynamicRegistration { get; set; }
+        public bool? DynamicRegistration { get; set; }
 
         /**
          * The client supports additional metadata in the form of definition links.
@@ -24,6 +24,6 @@ namespace LspTypes
          */
         [DataMember(Name = "linkSupport")]
         [JsonProperty(Required = Required.Default)]
-        public bool LinkSupport { get; set; }
+        public bool? LinkSupport { get; set; }
     }
 }

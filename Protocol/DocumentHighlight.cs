@@ -26,6 +26,6 @@ namespace LspTypes
          */
         [DataMember(Name = "kind")]
         [JsonProperty(Required = Required.Default)]
-        public DocumentHighlightKind Kind { get; set; }
+        public DocumentHighlightKind? Kind { get; set; }
     }
 }

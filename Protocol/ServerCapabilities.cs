@@ -23,7 +23,7 @@ namespace LspTypes
          */
         [DataMember(Name = "completionProvider")]
         [JsonProperty(Required = Required.Default, DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public SumType<bool, CompletionOptions> CompletionProvider { get; set; }
+        public CompletionOptions CompletionProvider { get; set; }
 
         /**
          * The server provides hover support.
@@ -217,7 +217,7 @@ namespace LspTypes
          */
         [DataMember(Name = "workspaceSymbolProvider")]
         [JsonProperty(Required = Required.Default, DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public SumType<bool, WorkspaceSymbolOptions>  WorkspaceSymbolProvider { get; set; }
+        public SumType<bool, WorkspaceSymbolOptions> WorkspaceSymbolProvider { get; set; }
 
         /**
          * Workspace specific server capabilities

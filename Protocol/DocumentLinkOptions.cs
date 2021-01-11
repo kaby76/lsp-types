@@ -5,7 +5,7 @@ namespace LspTypes
 {
     public interface IDocumentLinkOptions
     {
-        bool ResolveProvider { get; set; }
+        bool? ResolveProvider { get; set; }
     }
 
     [DataContract]
@@ -18,6 +18,6 @@ namespace LspTypes
          */
         [DataMember(Name = "resolveProvider")]
         [JsonProperty(Required = Required.Default)]
-        public bool ResolveProvider { get; set; }
+        public bool? ResolveProvider { get; set; }
     }
 }

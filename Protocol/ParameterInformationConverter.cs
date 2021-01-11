@@ -32,11 +32,11 @@ namespace LspTypes
                 JToken jtoken2 = jproperty1.Value;
                 if (jtoken2 is JArray jarray)
                 {
-                    Tuple<int, int> tuple = new Tuple<int, int>((int)Extensions.Value<int>((IEnumerable<JToken>)jarray[0]), (int)Extensions.Value<int>((IEnumerable<JToken>)jarray[1]));
-                    parameterInformation.Label = (SumType<string, Tuple<int, int>>)tuple;
+                    Tuple<uint, uint> tuple = new Tuple<uint, uint>((uint)Extensions.Value<uint>((IEnumerable<JToken>)jarray[0]), (uint)Extensions.Value<int>((IEnumerable<JToken>)jarray[1]));
+                    parameterInformation.Label = new SumType<string, Tuple<uint, uint>>(tuple);
                 }
                 else
-                    parameterInformation.Label = (SumType<string, Tuple<int, int>>)jtoken2.ToObject<SumType<string, Tuple<int, int>>>();
+                    parameterInformation.Label = (SumType<string, Tuple<uint, uint>>)jtoken2.ToObject<SumType<string, Tuple<uint, uint>>>();
             }
             if (jproperty2 != null)
             {

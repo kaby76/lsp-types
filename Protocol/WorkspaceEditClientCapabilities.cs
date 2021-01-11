@@ -13,7 +13,7 @@ namespace LspTypes
          */
         [DataMember(Name = "documentChanges")]
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public bool DocumentChanges { get; set; }
+        public bool? DocumentChanges { get; set; }
 
         /**
          * The resource operations the client supports. Clients should at least
@@ -45,7 +45,7 @@ namespace LspTypes
          */
         [DataMember(Name = "normalizesLineEndings")]
         [JsonProperty(Required = Required.Default)]
-        public bool NormalizesLineEndings { get; set; }
+        public bool? NormalizesLineEndings { get; set; }
 
         /**
 	     * Whether the client in general supports change annotations on text edits,

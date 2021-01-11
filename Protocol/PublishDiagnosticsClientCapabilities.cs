@@ -13,7 +13,7 @@ namespace LspTypes
          */
         [DataMember(Name = "relatedInformation")]
         [JsonProperty(Required = Required.Default)]
-        public bool RelatedInformation { get; set; }
+        public bool? RelatedInformation { get; set; }
 
         /**
          * Client supports the tag property to provide meta data about a diagnostic.
@@ -23,7 +23,7 @@ namespace LspTypes
          */
         [DataMember(Name = "tagSupport")]
         [JsonProperty(Required = Required.Default, DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public SumType<bool,_PublishDiagnosticsClientCapabilities_TagSupport> TagSupport { get; set; }
+        public _PublishDiagnosticsClientCapabilities_TagSupport TagSupport { get; set; }
 
         /**
          * Whether the client interprets the version property of the
@@ -33,12 +33,12 @@ namespace LspTypes
          */
         [DataMember(Name = "versionSupport")]
         [JsonProperty(Required = Required.Default)]
-        public bool VersionSupport { get; set; }
+        public bool? VersionSupport { get; set; }
 
         /**
 	     * Client supports a codeDescription property
          *
-	     * @since 3.16.0 - proposed state
+	     * @since 3.16.0
 	     */
         [DataMember(Name = "codeDescriptionSupport")]
         [JsonProperty(Required = Required.Default)]
@@ -49,11 +49,10 @@ namespace LspTypes
 	     * preserved between a `textDocument/publishDiagnostics` and
 	     * `textDocument/codeAction` request.
 	     *
-	     * @since 3.16.0 - proposed state
+	     * @since 3.16.0
 	     */
         [DataMember(Name = "dataSupport")]
         [JsonProperty(Required = Required.Default)]
         public bool? DataSupport { get; set; }
-
     }
 }

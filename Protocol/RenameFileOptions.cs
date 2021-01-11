@@ -16,13 +16,13 @@ namespace LspTypes
          */
         [DataMember(Name = "overwrite")]
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public bool Overwrite { get; set; }
+        public bool? Overwrite { get; set; }
 
         /**
          * Ignores if target exists.
          */
         [DataMember(Name = "ignoreIfExists")]
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public bool IgnoreIfExists { get; set; }
+        public bool? IgnoreIfExists { get; set; }
     }
 }

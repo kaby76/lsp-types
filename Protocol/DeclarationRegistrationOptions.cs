@@ -14,7 +14,7 @@ namespace LspTypes
          */
         [DataMember(Name = "documentSelector")]
         [JsonProperty(Required = Required.Always)]
-        public DocumentFilter[] documentSelector { get; set; }
+        public DocumentFilter[] DocumentSelector { get; set; }
         
         /**
          * The id used to register the request. The id can be used to deregister

@@ -10,7 +10,7 @@ namespace LspTypes
 
         [DataMember(Name = "workDoneProgress")]
         [JsonProperty(Required = Required.Default)]
-        public bool WorkDoneProgress { get; set; }
+        public bool? WorkDoneProgress { get; set; }
 
         /**
         * The id used to register the request. The id can be used to deregister

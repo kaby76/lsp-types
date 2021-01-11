@@ -15,7 +15,7 @@ namespace LspTypes
          */
         [DataMember(Name = "applyEdit")]
         [JsonProperty(Required = Required.Default)]
-        public bool ApplyEdit { get; set; }
+        public bool? ApplyEdit { get; set; }
 
         /**
          * Capabilities specific to `WorkspaceEdit`s
@@ -61,7 +61,7 @@ namespace LspTypes
          */
         [DataMember(Name = "workspaceFolders")]
         [JsonProperty(Required = Required.Default)]
-        public bool WorkspaceFolders { get; set; }
+        public bool? WorkspaceFolders { get; set; }
 
         /**
          * The client supports `workspace/configuration` requests.
@@ -70,7 +70,7 @@ namespace LspTypes
          */
         [DataMember(Name = "configuration")]
         [JsonProperty(Required = Required.Default)]
-        public bool Configuration { get; set; }
+        public bool? Configuration { get; set; }
 
         /**
          * Capabilities specific to the semantic token requests scoped to the

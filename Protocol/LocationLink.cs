@@ -17,6 +17,7 @@ namespace LspTypes
          * the mouse position.
          */
         [DataMember(Name = "originSelectionRange")]
+        [JsonProperty(Required = Required.Default)]
         public Range OriginSelectionRange { get; set; }
 
         /**

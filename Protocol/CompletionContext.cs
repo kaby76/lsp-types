@@ -3,7 +3,8 @@
 namespace LspTypes
 {
     /**
-     * Contains additional information about the context in which a completion request is triggered.
+     * Contains additional information about the context in which a completion
+     * request is triggered.
      */
     [DataContract]
     public class CompletionContext
@@ -17,9 +18,10 @@ namespace LspTypes
         public CompletionTriggerKind TriggerKind { get; set; }
 
         /**
-         * The trigger character (a single character) that has trigger code complete.
-         * Is undefined if `triggerKind !== CompletionTriggerKind.TriggerCharacter`
-         */
+         * The trigger character (a single character) that has trigger code
+	     * complete. Is undefined if
+	     * `triggerKind !== CompletionTriggerKind.TriggerCharacter`
+	     */
         [DataMember(Name = "triggerCharacter")]
         public string TriggerCharacter { get; set; }
     }

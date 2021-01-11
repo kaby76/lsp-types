@@ -13,7 +13,7 @@ namespace LspTypes
          */
         [DataMember(Name = "dynamicRegistration")]
         [JsonProperty(Required = Required.Default)]
-        public bool DynamicRegistration { get; set; }
+        public bool? DynamicRegistration { get; set; }
 
         /**
          * The client supports the following `CompletionItem` specific
@@ -33,6 +33,6 @@ namespace LspTypes
          */
         [DataMember(Name = "contextSupport")]
         [JsonProperty(Required = Required.Default)]
-        public bool ContextSupport { get; set; }
+        public bool? ContextSupport { get; set; }
     }
 }

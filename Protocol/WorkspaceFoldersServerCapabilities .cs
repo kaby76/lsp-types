@@ -13,7 +13,7 @@ namespace LspTypes
          */
         [DataMember(Name = "supported")]
         [JsonProperty(Required = Required.Default)]
-        public bool Supported { get; set; }
+        public bool? Supported { get; set; }
 
         /**
          * Whether the server wants to receive workspace folder

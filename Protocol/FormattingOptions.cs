@@ -17,7 +17,7 @@ namespace LspTypes
          */
         [DataMember(Name = "tabSize")]
         [JsonProperty(Required = Required.Always)]
-        public int TabSize { get; set; }
+        public uint TabSize { get; set; }
 
         /**
          * Prefer spaces over tabs.
@@ -33,7 +33,7 @@ namespace LspTypes
          */
         [DataMember(Name = "trimTrailingWhitespace")]
         [JsonProperty(Required = Required.Default)]
-        public bool TrimTrailingWhitespace { get; set; }
+        public bool? TrimTrailingWhitespace { get; set; }
 
         /**
          * Insert a newline character at the end of the file if one does not exist.
@@ -42,7 +42,7 @@ namespace LspTypes
          */
         [DataMember(Name = "insertFinalNewline")]
         [JsonProperty(Required = Required.Default)]
-        public bool InsertFinalNewline { get; set; }
+        public bool? InsertFinalNewline { get; set; }
 
         /**
          * Trim all newlines after the final newline at the end of the file.
@@ -51,12 +51,13 @@ namespace LspTypes
          */
         [DataMember(Name = "trimFinalNewlines")]
         [JsonProperty(Required = Required.Default)]
-        public bool TrimFinalNewlines { get; set; }
+        public bool? TrimFinalNewlines { get; set; }
 
         /**
          * Signature for further properties.
          */
         [JsonExtensionData]
-        public Dictionary<string, object> OtherOptions { get; set; }
+        [JsonProperty(Required = Required.Default)]
+        public Dictionary<string, SumType<bool, int, string>> OtherOptions { get; set; }
     }
 }

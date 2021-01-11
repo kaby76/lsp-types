@@ -16,7 +16,7 @@ namespace LspTypes
          */
         [DataMember(Name = "contents")]
         [JsonProperty(Required = Required.Always, DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public SumType<SumType<string, MarkedString>, SumType<string, MarkedString>[], MarkupContent> Contents { get; set; }
+        public SumType<string, MarkedString, MarkedString[], MarkupContent> Contents { get; set; }
 
         /**
          * An optional range is a range inside a text document

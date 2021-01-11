@@ -21,7 +21,7 @@ namespace LspTypes
          */
         [DataMember(Name = "cancellable")]
         [JsonProperty(Required = Required.Default)]
-        public bool Cancellable { get; set; }
+        public bool? Cancellable { get; set; }
 
         /**
          * Optional, more detailed associated progress message. Contains
@@ -44,6 +44,6 @@ namespace LspTypes
          */
         [DataMember(Name = "percentage")]
         [JsonProperty(Required = Required.Default)]
-        public uint Percentage { get; set; }
+        public uint? Percentage { get; set; }
     }
 }

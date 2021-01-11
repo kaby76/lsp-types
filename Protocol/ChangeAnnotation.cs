@@ -25,7 +25,7 @@ namespace LspTypes
 		 */
 		[DataMember(Name = "needsConfirmation")]
 		[JsonProperty(Required = Required.Default)]
-		public bool NeedsConfirmation { get; set; }
+		public bool? NeedsConfirmation { get; set; }
 
 		/**
 		 * A human-readable string which is rendered less prominent in

@@ -4,9 +4,10 @@ using System.Runtime.Serialization;
 namespace LspTypes
 {
     /**
-     * Represents programming constructs like variables, classes, interfaces etc. that appear in a document. Document symbols can be
-     * hierarchical and they have two ranges: one that encloses its definition and one that points to its most interesting range,
-     * e.g. the range of an identifier.
+     * Represents programming constructs like variables, classes, interfaces etc.
+     * that appear in a document. Document symbols can be hierarchical and they
+     * have two ranges: one that encloses its definition and one that points to its
+     * most interesting range, e.g. the range of an identifier.
      */
     [DataContract]
     public class DocumentSymbol
@@ -14,8 +15,9 @@ namespace LspTypes
         public DocumentSymbol() { }
 
         /**
-         * The name of this symbol. Will be displayed in the user interface and therefore must not be
-         * an empty string or a string only consisting of white spaces.
+         * The name of this symbol. Will be displayed in the user interface and
+	     * therefore must not be an empty string or a string only consisting of
+	     * white spaces.
          */
         [DataMember(IsRequired = true, Name = "name")]
         [JsonProperty(Required = Required.Always)]
@@ -36,13 +38,13 @@ namespace LspTypes
         public SymbolKind Kind { get; set; }
 
         /**
-         * Tags for this completion item.
+         * Tags for this document symbol.
          *
          * @since 3.16.0
          */
         [DataMember(Name = "tags")]
         [JsonProperty(Required = Required.Default)]
-        public SymbolTag Tags { get; set; }
+        public SymbolTag[] Tags { get; set; }
 
         /**
          * Indicates if this symbol is deprecated.
@@ -54,17 +56,18 @@ namespace LspTypes
         public bool? Deprecated { get; set; }
 
         /**
-         * The range enclosing this symbol not including leading/trailing whitespace but everything else
-         * like comments. This information is typically used to determine if the clients cursor is
-         * inside the symbol to reveal in the symbol in the UI.
+         * The range enclosing this symbol not including leading/trailing whitespace
+	     * but everything else like comments. This information is typically used to
+	     * determine if the clients cursor is inside the symbol to reveal in the
+	     * symbol in the UI.
          */
         [DataMember(Name = "range")]
         [JsonProperty(Required = Required.Always)]
         public Range Range { get; set; }
 
         /**
-         * The range that should be selected and revealed when this symbol is being picked, e.g the name of a function.
-         * Must be contained by the `range`.
+         * The range that should be selected and revealed when this symbol is being
+	     * picked, e.g. the name of a function. Must be contained by the `range`.
          */
         [DataMember(Name = "selectionRange")]
         [JsonProperty(Required = Required.Always)]

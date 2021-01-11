@@ -31,7 +31,7 @@ namespace LspTypes
          * mandatory to better express this.
          */
         [DataMember(Name = "activeSignature")]
-        public int ActiveSignature { get; set; }
+        public uint? ActiveSignature { get; set; }
 
         /**
          * The active parameter of the active signature. If omitted or the value
@@ -43,6 +43,6 @@ namespace LspTypes
          * active signature does have any.
          */
         [DataMember(Name = "activeParameter")]
-        public int ActiveParameter { get; set; }
+        public uint? ActiveParameter { get; set; }
     }
 }

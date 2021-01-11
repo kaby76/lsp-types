@@ -12,12 +12,12 @@ namespace LspTypes
          * Code lens has a resolve provider as well.
          */
         [DataMember(Name = "resolveProvider")]
-        public bool ResolveProvider { get; set; }
+        public bool? ResolveProvider { get; set; }
     }
 
     public interface ICodeLensOptions : IWorkDoneProgressOptions
     {
-        bool ResolveProvider { get; set; }
+        bool? ResolveProvider { get; set; }
     }
 
 }
