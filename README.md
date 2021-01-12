@@ -1,4 +1,7 @@
 # lsp-types
+
+[![Build](https://github.com/kaby76/lsp-types/workflows/.NET/badge.svg)](https://github.com/kaby76/lsp-types/actions?query=workflow%3A.NET)
+
 This project is a C# library for
 client or server [Language Server Protocol (LSP)](https://langserver.org/)
 applications, which implements the messages types in the protocol.
