@@ -39,7 +39,7 @@ PM> Install-Package LanguageServerProtocol
 Or, you can simply add the following to your .csproj file.
 
 	<ItemGroup>
-		<PackageReference Include="LspTypes" Version="0.0.4" />
+		<PackageReference Include="LspTypes" Version="3.16.6" />
 	</ItemGroup>
 
 # Release notes
