@@ -58,6 +58,19 @@ Or, you can simply add the following to your .csproj file.
 
 # Release notes
 
+* Version 3.16.6 (12 Jan 2021) -- All types brought up to date to spec 3.16,
+which was officially released 14 Dec 2020. This version was scraped by
+hand using first diffing between 1 Oct 2020 and the beginning of January.
+I then went through every damn type to verify that all types and properties are
+specified. The library is now built with Github Actions.
+There are still no build tests, and the only test I have that this library
+works is my own LSP server Antlrvsix. But, [issue #2](https://github.com/kaby76/lsp-types/issues/2)
+ to track examples, and [issue #4](https://github.com/kaby76/lsp-types/issues/4)
+for testing.
+
+* Version 3.16.5 (17 Oct 2020) -- First functional, realistic version
+of the library. 
+
 * Version 0.0.4 corrects the mandatory property of field Capabilities of the class InitilizeResult.
 
 * Versions 0.0.1 to 0.0.3 are initial revisions to pull all the types of the LSP protocol from Antlrvsix
