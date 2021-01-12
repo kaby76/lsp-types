@@ -7,10 +7,10 @@ namespace LspTypes
     public class WorkDoneProgressOptions : IWorkDoneProgressOptions
     {
         public WorkDoneProgressOptions() { }
-        
+
         [DataMember(Name = "workDoneProgress")]
         [JsonProperty(Required = Required.Default)]
-        public bool? WorkDoneProgress { get; set; }
+        public bool? WorkDoneProgress { get; set; } = false;
     }
 
     public interface IWorkDoneProgressOptions
