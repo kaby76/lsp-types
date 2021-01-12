@@ -7,7 +7,7 @@ client or server [Language Server Protocol (LSP)](https://langserver.org/)
 applications, which implements the messages types in the protocol.
 It is based on [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/)
 and [StreamJsonRpc](https://www.nuget.org/packages/StreamJsonRpc/),
-and modeled from [Microsoft.VisualStudio.LanguageServer.Protocol](https://www.nuget.org/packages/Microsoft.VisualStudio.LanguageServer.Protocol/).
+and modeled after [Microsoft.VisualStudio.LanguageServer.Protocol](https://www.nuget.org/packages/Microsoft.VisualStudio.LanguageServer.Protocol/).
 This library allows one to access the information in the LSP message calling parameters
 in a natural manner using a C# class. Type checking is performed by the StreamJsonRpc and
 Newtonsoft.Json libraries for manditory or illegal values of fields of the class. For example,
@@ -25,20 +25,6 @@ can't be used in a server that will work with other clients,
 such as Visual Studio Code, if one wants to
 implement newer features of the protocol,
 such as semantic highlighting.
-
-While the types defined
-in this library are not mechanically
-scraped from the LSP Spec, I have
-hand-checked every class and interface to try
-to faithfully implement LSP protocol version 3.16 in the spec.
-It currently uses Newtonsoft.Json
-and StreamJsonRpc, but I am considering porting it over to the newer
-[System.Text.Json](https://www.nuget.org/packages/System.Text.Json/).
-This library is used by [Antlrvsix](https://github.com/kaby76/AntlrVSIX),
-but could easily be
-adapted elsewhere. I made it public because this took me a solid week
-(7 days/12 hour days) to code this up. It was painful, and hopefully
-I can spare some of the pain for other developers.
 
 ## Installation
 
@@ -62,11 +48,11 @@ Or, you can simply add the following to your .csproj file.
 which was officially released 14 Dec 2020. This version was scraped by
 hand using first diffing between 1 Oct 2020 and the beginning of January.
 I then went through every damn type to verify that all types and properties are
-specified. The library is now built with Github Actions.
-There are still no build tests, and the only test I have that this library
-works is my own LSP server Antlrvsix. But, [issue #2](https://github.com/kaby76/lsp-types/issues/2)
- to track examples, and [issue #4](https://github.com/kaby76/lsp-types/issues/4)
-for testing.
+specified. The library is now built using Github Actions.
+There is still no testing of the library other than my LSP server in Antlrvsix.
+[Issue #2](https://github.com/kaby76/lsp-types/issues/2)
+is a request to provide examples; [issue #4](https://github.com/kaby76/lsp-types/issues/4)
+is a request for testing.
 
 * Version 3.16.5 (17 Oct 2020) -- First functional, realistic version
 of the library. 
