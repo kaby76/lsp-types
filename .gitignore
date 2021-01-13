@@ -2,3 +2,12 @@ Protocol/obj/
 Protocol/.vs/
 Protocol/bin/
 .vs/
+Sample/Server/bin/
+Sample/Server/obj/
+*.vsix
+Sample/VsCode/package-lock.json
+Sample/VsCode/node_modules/
+Sample/VsCode/out/
+Sample/VsCode/server/net5.0/
+Sample/VsCode/.vscode/launch.json
+Sample/VsCode/.vscode/
