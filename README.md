@@ -29,7 +29,10 @@ such as semantic highlighting.
 ## Installation
 
 [NuGet Package](https://www.nuget.org/packages/LspTypes/) is available.
-All versions currently only target the proposed [3.16 Specification](https://microsoft.github.io/language-server-protocol/specifications/specification-3-16/).
+The version on the package reflects the version
+targeted, e.g., version v3.16.6 targets version [3.16 of the Specification](https://microsoft.github.io/language-server-protocol/specifications/specification-3-16/).
+I currently only support 3.16, but it should be backward 
+compatible with older implementations of the spec. 
 Run the following command in [NuGet Package Manager Console](https://docs.microsoft.com/nuget/tools/package-manager-console).
 
 ```
