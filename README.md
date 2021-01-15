@@ -3,28 +3,27 @@
 [![Build](https://github.com/kaby76/lsp-types/workflows/.NET/badge.svg)](https://github.com/kaby76/lsp-types/actions?query=workflow%3A.NET)
 
 This project is a C# library for
-client or server [Language Server Protocol (LSP)](https://langserver.org/)
-applications, which implements the messages types in the protocol.
+client and server [Language Server Protocol (LSP)](https://langserver.org/)
+applications. It implements all the messages types in the protocol so that the
+developer can focus on implementing the application instead of the boilerplate
+code needed to convert an LSP message into C# data types.
 It is based on [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/)
 and [StreamJsonRpc](https://www.nuget.org/packages/StreamJsonRpc/),
 and modeled after [Microsoft.VisualStudio.LanguageServer.Protocol](https://www.nuget.org/packages/Microsoft.VisualStudio.LanguageServer.Protocol/).
-This library allows one to access the information in the LSP message calling parameters
-in a natural manner using a C# class. Type checking is performed by the StreamJsonRpc and
-Newtonsoft.Json libraries for manditory or illegal values of fields of the class. For example,
-in response to the [Initialize Request](https://microsoft.github.io/language-server-protocol/specifications/specification-3-16/#initialize),
-the server must respond with a [InitializeResult](https://github.com/kaby76/AntlrVSIX/blob/b5d14e579247e05578065e4ad87f6dd97c63a6cd/Server/LanguageServerTarget.cs#L234),
-which contains a [ServerCapabilities](https://github.com/kaby76/AntlrVSIX/blob/b5d14e579247e05578065e4ad87f6dd97c63a6cd/Server/LanguageServerTarget.cs#L153)
-for all the options that the server supports. The `capabilities` field is mandatory as
-stated in the spec, [attributed so](https://github.com/kaby76/lsp-types/blob/92432dad9f0ba6f21b71d2f75c5d4f12a08d33dd/Protocol/InitializeResult.cs#L15),
-named with a lowercase name and [attributed with the correct name](https://github.com/kaby76/lsp-types/blob/92432dad9f0ba6f21b71d2f75c5d4f12a08d33dd/Protocol/InitializeResult.cs#L14).
+Type checking is performed by the StreamJsonRpc and
+Newtonsoft.Json libraries for manditory or illegal values of fields of the class. Several
+examples are provided to demonstrate a server application.
 
-The reason I wrote this is because
-I found that Microsoft's library is geared too closely to the
-LSP client for Visual Studio 2019. It is missing major pieces and 
-can't be used in a server that will work with other clients,
-such as Visual Studio Code, if one wants to
-implement newer features of the protocol,
-such as semantic highlighting.
+I wrote this library because
+[Microsoft's LSP types library](https://www.nuget.org/packages/Microsoft.VisualStudio.LanguageServer.Protocol/)
+is geared too closely to the
+LSP client for Visual Studio 2019. It is missing major features, including 
+the essential feature of that users expect of any editor extension: semantic highlighting.
+Microsoft recommendeds the antiquated [TextMate](https://docs.microsoft.com/en-us/visualstudio/extensibility/adding-an-lsp-extension?view=vs-2019#textmate-grammar-files) system, which is a errible implementation for several reasons:
+TextMate expressions are regular expressions, which do not take into account the context-free nature
+of virtually all programming languages; it duplicates the functionality in the client the parsing and
+symbol table construction that
+is performed by the server; the regular expressions in TextMate are difficult to understand.
 
 ## Installation
 
@@ -44,6 +43,25 @@ Or, you can simply add the following to your .csproj file.
 	<ItemGroup>
 		<PackageReference Include="LspTypes" Version="3.16.6" />
 	</ItemGroup>
+
+## Example
+
+To demonstrate this library in an implementation, I provide a simple [LSP server](https://github.com/kaby76/lsp-types/tree/master/Sample/Server)
+that connects to a [VSCode client](https://github.com/kaby76/lsp-types/tree/master/Sample/VsCode).
+See the [instructions](https://github.com/kaby76/lsp-types/blob/master/Sample/VsCode/README.md)
+on how to run it.
+
+The first message received by an LSP server is the [Initialize Request](https://microsoft.github.io/language-server-protocol/specifications/specification-3-16/#initialize). The server
+requires an implementation for the remote procedure call, which is
+[a method in the server](https://github.com/kaby76/lsp-types/blob/e02a7b14057a04587e31f0aef80b5843553418a6/Sample/Server/Program.cs#L91)
+attributed with `[JsonRpcMethod(Methods.InitializeName)]`.
+The function of the method is to construct a 
+[InitializeResult](https://github.com/kaby76/lsp-types/blob/e02a7b14057a04587e31f0aef80b5843553418a6/Sample/Server/Program.cs#L171)
+response data type, with properties of the [ServerCapabilities](https://github.com/kaby76/lsp-types/blob/e02a7b14057a04587e31f0aef80b5843553418a6/Sample/Server/Program.cs#L103)
+initialized to values the server intends to support.
+The `capabilities` field is mandatory as
+stated in the spec, [attributed so](https://github.com/kaby76/lsp-types/blob/92432dad9f0ba6f21b71d2f75c5d4f12a08d33dd/Protocol/InitializeResult.cs#L15),
+named with a lowercase name and [attributed with the correct name](https://github.com/kaby76/lsp-types/blob/92432dad9f0ba6f21b71d2f75c5d4f12a08d33dd/Protocol/InitializeResult.cs#L14).
 
 # Release notes
 
