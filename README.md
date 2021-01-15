@@ -19,12 +19,15 @@ I wrote this library because
 is geared too closely to the
 LSP client for Visual Studio 2019. It is missing many major features and it is years behind the spec.
 However, the most important feature missing is semantic highlighting, which is
-a basic feature users expect in any editor extension.
-Microsoft recommendeds the antiquated [TextMate](https://docs.microsoft.com/en-us/visualstudio/extensibility/adding-an-lsp-extension?view=vs-2019#textmate-grammar-files) system, which is a errible implementation for several reasons:
+a basic feature users expect in an editor extension for a language.
+Microsoft recommendeds the antiquated [TextMate](https://docs.microsoft.com/en-us/visualstudio/extensibility/adding-an-lsp-extension?view=vs-2019#textmate-grammar-files) system, which is a terrible way to implement semantic highlighting
+for several reasons:
 TextMate expressions are regular expressions, which do not take into account the context-free nature
-of virtually all programming languages; it duplicates the functionality in the client the parsing and
-symbol table construction that
-is performed by the server; the regular expressions in TextMate are difficult to understand.
+of virtually all programming languages; TextMate duplicates the parsing (at a crude level)
+that is performed by the server, meaning that you have two places to maintain when the language changes;
+not all clients support TextMate;
+the regular expressions in TextMate are difficult to understand because they are in JSON format,
+and do not follow typical regular expression syntax.
 
 ## Installation
 
