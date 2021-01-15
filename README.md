@@ -17,8 +17,9 @@ examples are provided to demonstrate a server application.
 I wrote this library because
 [Microsoft's LSP types library](https://www.nuget.org/packages/Microsoft.VisualStudio.LanguageServer.Protocol/)
 is geared too closely to the
-LSP client for Visual Studio 2019. It is missing major features, including 
-the essential feature of that users expect of any editor extension: semantic highlighting.
+LSP client for Visual Studio 2019. It is missing many major features and it is years behind the spec.
+However, the most important feature missing is semantic highlighting, which is
+a basic feature users expect in any editor extension.
 Microsoft recommendeds the antiquated [TextMate](https://docs.microsoft.com/en-us/visualstudio/extensibility/adding-an-lsp-extension?view=vs-2019#textmate-grammar-files) system, which is a errible implementation for several reasons:
 TextMate expressions are regular expressions, which do not take into account the context-free nature
 of virtually all programming languages; it duplicates the functionality in the client the parsing and
