@@ -29,6 +29,9 @@ not all clients support TextMate;
 the regular expressions in TextMate are difficult to understand because they are in JSON format,
 and do not follow typical regular expression syntax.
 
+_Note, the current version of Microsoft.VisualStudio.LanguageServer.Protocol, v17.2.8, still does
+not work with Semantic Tokens and Visual Studio Code. Therefore lsp-types is still relevant._
+
 ## Installation
 
 [NuGet Package](https://www.nuget.org/packages/LspTypes/) is available.
